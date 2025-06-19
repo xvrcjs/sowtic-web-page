@@ -1,6 +1,9 @@
 import DataInterface from "./dataInterface";
 
-export default interface MainInterface extends DataInterface { 
+/**
+ * Main banner data structure.
+ */
+export default interface MainInterface extends DataInterface {
     image?: string;
     buttonBack?:boolean;
     subHeading?:string,

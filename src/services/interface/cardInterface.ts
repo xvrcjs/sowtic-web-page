@@ -1,6 +1,9 @@
 import DataInterface from "./dataInterface";
 
-export default interface CardInterface extends DataInterface { 
+/**
+ * Card data structure.
+ */
+export default interface CardInterface extends DataInterface {
     number?:string;
     heading?:string
     image?: string;

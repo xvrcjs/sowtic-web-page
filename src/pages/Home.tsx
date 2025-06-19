@@ -14,6 +14,11 @@ import {
     StripeInterface,
 } from "../services/interface/index";
 
+/**
+ * Home page component.
+ *
+ * @returns JSX.Element home page.
+ */
 const Home = () => {
     const [data, setData] = useState<BannerInterface[]>([]);
     const bannerService = new BannerService();

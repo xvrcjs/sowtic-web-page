@@ -4,6 +4,11 @@ import ButtonToTop from "./shared/ButtonToTop"
 import { ContactUs } from "./shared/ContatUs"
 
 
+/**
+ * Page footer with contact form and links.
+ *
+ * @returns JSX.Element website footer.
+ */
 const Footer = () =>{
     return (        
         <footer>

@@ -6,6 +6,7 @@ Sitio web corporativo construido con **React**, **TypeScript** y **Vite**. El pr
 
 - **React 18** + **TypeScript**
 - **Vite** como empaquetador y servidor de desarrollo
+- **@vitejs/plugin-react** para integracion con React
 - **React Router DOM** para el ruteo de la aplicación
 - **Bootstrap 5** y **React‑Bootstrap** para la maquetación visual
 - **Sass** para estilos personalizados (`src/styles`)
@@ -88,6 +89,16 @@ El contenedor utiliza el servidor de desarrollo de Vite, por lo que cualquier ca
 - Navegar por las distintas páginas a través del menú principal.
 - El formulario de contacto (`ContactUs`) envía correos mediante EmailJS y utiliza reCAPTCHA para verificar al usuario.
 - Los datos mostrados (banners, tarjetas, textos) se obtienen actualmente de archivos TypeScript en `src/services/databaseInMemory/`.
+
+## Actualizar Bootstrap SCSS
+
+Si actualizas la versión de Bootstrap, puedes migrar los archivos SCSS con:
+
+```bash
+npm run bootstrap:migrate
+```
+
+El script copia las fuentes de `node_modules/bootstrap` a `src/styles/vendor/bootstrap/` y las transforma con `sass-migrator` para eliminar avisos deprecados.
 
 ## Contribución
 

@@ -11,6 +11,12 @@ interface CarouselCollapseProps {
   dataCollapse?: CardInterface[];
 }
 
+/**
+ * Carousel component with collapsible descriptions.
+ *
+ * @param dataCollapse - cards for each slide.
+ * @returns JSX.Element carousel.
+ */
 const CarouselCollapse = ({ dataCollapse }: CarouselCollapseProps) => {
   const [open] = useState<boolean[]>([true, false]);
   const [lastOpen, setLastOpen] = useState<number>(0);

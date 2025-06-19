@@ -3,22 +3,35 @@ import ReCAPTCHA from "react-google-recaptcha";
 import emailjs from "@emailjs/browser";
 import { Button, Card, Col, Form, Row } from 'react-bootstrap';
 
-function onChange(value:any) {
+/**
+ * Handler for captcha change events.
+ *
+ * @param value - captcha token.
+ */
+function onChange(value: string | null) {
   console.log("Captcha value:", value);
 }
 
+/**
+ * Contact form component.
+ *
+ * @returns JSX.Element contact form.
+ */
 export const ContactUs = () => {
   //const form = React.useRef();
 
-  const sendEmail = (e:any) => {
+  const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    //console.log(e);
-    emailjs.sendForm('sowtic_contact', 'sowtic_contact', e.target, 'htkBMAuaSBux4s4ii')
-      .then((result:any) => {
-        console.log(result.text);
-      }, (error:any) => {
-        console.log(error.text);
-      });
+    emailjs
+      .sendForm('sowtic_contact', 'sowtic_contact', e.currentTarget, 'htkBMAuaSBux4s4ii')
+      .then(
+        (result) => {
+          console.log(result.text);
+        },
+        (error) => {
+          console.log(error.text);
+        },
+      );
   };
 
   return (

@@ -2,8 +2,23 @@ import { Link } from "react-router-dom"
 import { Button, Col, Row } from "react-bootstrap"
 import { Fade } from "react-awesome-reveal";
 
+interface ContentStripeProps {
+  image: string;
+  title: string;
+  text: string;
+  buttonText?: string;
+  buttonUrl?: string;
+  buttonIcon?: string;
+  imageRight?: boolean;
+}
 
-const ContentStripe = (params:any) => {
+/**
+ * Section with image and text stripe.
+ *
+ * @param props - stripe data.
+ * @returns JSX.Element stripe section.
+ */
+const ContentStripe = (props: ContentStripeProps) => {
     const {
         image,
         title,
@@ -12,7 +27,7 @@ const ContentStripe = (params:any) => {
         buttonUrl,
         buttonIcon,
         imageRight,
-    } = params;
+    } = props;
     return (
         <Row className="align-items-lg-center mb-4 gy-3 content-stripe">
             <Col xs="12" md="5" lg="6" className={"col-img " + (imageRight ? "ps-md-0 order-0" : "pe-md-0 order-1") }>

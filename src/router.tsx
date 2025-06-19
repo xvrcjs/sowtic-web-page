@@ -38,6 +38,11 @@ const router = createBrowserRouter ([
     },
 ]);
 
+/**
+ * React Router provider wrapper.
+ *
+ * @returns JSX.Element routing component.
+ */
 function Router() {
     return(
         <RouterProvider router={router} />
