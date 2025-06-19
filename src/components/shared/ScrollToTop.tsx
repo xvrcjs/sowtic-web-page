@@ -6,10 +6,16 @@ interface Props {
 }
 
 /**
- * Scrolls the window to top on route change.
+ * ScrollToTop component.
+ * Smoothly scrolls to the top on every route change.
  *
- * @param children - wrapped elements.
- * @returns JSX.Element children wrapper.
+ * @param props.children - elements wrapped by the provider
+ * @example
+ * <BrowserRouter>
+ *   <ScrollToTop>
+ *     <AppRoutes />
+ *   </ScrollToTop>
+ * </BrowserRouter>
  */
 const ScrollToTop = ({ children }: Props) => {
   const { pathname } = useLocation();

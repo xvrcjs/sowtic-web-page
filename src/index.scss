@@ -1,6 +1,5 @@
-@use "./styles/bootstrap" as * with (
-  $secondary: #BEE9FF,
-);
+// Global style entry point
+@forward "./styles/bootstrap-theme";
 @use "./styles/index" as *;
 
 

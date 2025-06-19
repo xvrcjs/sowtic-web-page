@@ -1,0 +1,5 @@
+// Bootstrap theme overrides
+$primary: #0084FF !default;
+$secondary: #BEE9FF !default;
+
+@use "../../node_modules/bootstrap/scss/bootstrap" as *;
