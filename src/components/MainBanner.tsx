@@ -2,11 +2,22 @@ import { Link } from "react-router-dom"
 import { Button, Col, Row, Container } from "react-bootstrap"
 import { Fade } from "react-awesome-reveal";
 
-const MainBanner = (params: any) => {
+interface MainBannerProps {
+  buttonBack?: boolean;
+  children: React.ReactNode;
+}
+
+/**
+ * Main hero banner component.
+ *
+ * @param props - banner options.
+ * @returns JSX.Element hero banner.
+ */
+const MainBanner = (props: MainBannerProps) => {
     const {
         buttonBack,
         children
-    } = params; 
+    } = props;
     return (
         <Container fluid>
             <Row className="main__slider gx-0 justify-content-center flex-column">

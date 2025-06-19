@@ -10,6 +10,11 @@ import {
     CardInterface
 } from "../services/interface/index";
 
+/**
+ * Smart routines service page.
+ *
+ * @returns JSX.Element page content.
+ */
 const SmartRutines = () => {
     
     const [data, setData] = useState<BannerInterface[]>([]);

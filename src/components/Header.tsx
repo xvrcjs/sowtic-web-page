@@ -2,6 +2,11 @@ import { Link } from "react-router-dom"
 import { Container, Navbar, Nav, NavDropdown, Button } from "react-bootstrap"
 import { useState } from "react";
 
+/**
+ * Top navigation bar.
+ *
+ * @returns JSX.Element site header.
+ */
 const Header = () => {
     const [solid, setSolid] = useState(false);
     const makeSolid = () => {

@@ -1,6 +1,9 @@
 import DataInterface from "./dataInterface";
 
-export default interface StripeInterface extends DataInterface { 
+/**
+ * Stripe data structure.
+ */
+export default interface StripeInterface extends DataInterface {
     image?: string;
     title?: string;
     text?: string;

@@ -2,7 +2,6 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import Router from './router.tsx'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './styles/styles.scss'
 import './index.scss'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(

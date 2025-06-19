@@ -2,6 +2,11 @@ import { useState } from 'react';
 import { Col, Row, Container, Card, Button, Fade } from "react-bootstrap"
 import { MainBanner, ContentStripe } from "../components"
 
+/**
+ * Image computing service page.
+ *
+ * @returns JSX.Element page content.
+ */
 const ImageComputing = () => {
     const [open, setOpen] = useState(false);
     return (

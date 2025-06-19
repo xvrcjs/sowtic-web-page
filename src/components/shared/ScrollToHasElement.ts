@@ -1,6 +1,11 @@
 import { useMemo, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
+/**
+ * Scrolls smoothly to the element referenced by the URL hash.
+ *
+ * @returns null
+ */
 const ScrollToHashElement = () => {
   const location = useLocation();
 

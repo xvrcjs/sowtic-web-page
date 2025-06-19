@@ -3,6 +3,15 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
+/**
+ * Demo application component.
+ *
+ * @returns JSX.Element - rendered demo.
+ * @example
+ * ```tsx
+ * <App />
+ * ```
+ */
 function App() {
   const [count, setCount] = useState(0)
 

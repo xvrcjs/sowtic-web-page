@@ -1,14 +1,8 @@
-// Required
-@import "../node_modules/bootstrap/scss/functions";
+@use "./styles/bootstrap" as * with (
+  $secondary: #BEE9FF,
+);
+@use "./styles/index" as *;
 
-// Default variable overrides
-$secondary:#BEE9FF;
-// Required
-@import "../node_modules/bootstrap/scss/variables";
-@import "../node_modules/bootstrap/scss/variables-dark";
-@import "../node_modules/bootstrap/scss/maps";
-@import "../node_modules/bootstrap/scss/mixins";
-@import "../node_modules/bootstrap/scss/root";
 
 @font-face {
   font-family: 'Montserrat', sans-serif;

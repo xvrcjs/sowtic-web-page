@@ -10,6 +10,11 @@ import {
     CardInterface
 } from "../services/interface/index";
 
+/**
+ * Inventory control service page.
+ *
+ * @returns JSX.Element page content.
+ */
 const InventaryControl = () => {
     
     const [data, setData] = useState<BannerInterface[]>([]);

@@ -10,6 +10,11 @@ import {
     CardInterface
 } from "../services/interface/index";
 
+/**
+ * Remote assistant service page.
+ *
+ * @returns JSX.Element page content.
+ */
 const RemoteAssistant = () => {
     
     const [data, setData] = useState<BannerInterface[]>([]);
