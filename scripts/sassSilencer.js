@@ -3,11 +3,13 @@
  * src/styles/vendor/bootstrap/**  but keeps everything else.
  */
 import path from "path";
-import type { Logger } from "sass";
+
+/** @typedef {import("sass").Logger} SassLogger */
 
 const vendorDir = path.resolve("src/styles/vendor/bootstrap");
 
-const logger /** @type {Logger} */ = {
+/** @type {SassLogger} */
+const logger = {
   warn(text, { span }) {
     const file = span?.url?.pathname || "";
     if (file.startsWith(vendorDir)) return; // 🚫 silence vendor warnings
