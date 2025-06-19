@@ -61,13 +61,27 @@ Sitio web corporativo construido con **React**, **TypeScript** y **Vite**. El pr
    ```bash
    npm run build
    ```
-   Los archivos estáticos listos para producción quedarán en `dist/`.
+Los archivos estáticos listos para producción quedarán en `dist/`.
 5. Visualizar el build localmente:
    ```bash
    npm run preview
    ```
 
-También es posible generar la aplicación dentro de un contenedor Docker utilizando el `Dockerfile` incluido.
+## Ejecutar con Docker
+
+Si prefieres no instalar las dependencias de Node.js en tu máquina, puedes levantar la aplicación dentro de un contenedor Docker.
+
+1. Construye la imagen:
+   ```bash
+   docker build -t sowtic-web-page .
+   ```
+2. Inicia el contenedor mapeando el puerto `8080`:
+   ```bash
+   docker run --rm -p 8080:8080 sowtic-web-page
+   ```
+3. Accede a `http://localhost:8080` desde tu navegador.
+
+El contenedor utiliza el servidor de desarrollo de Vite, por lo que cualquier cambio en los archivos del proyecto se reflejará automáticamente.
 
 ## Uso
 

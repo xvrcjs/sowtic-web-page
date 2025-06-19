@@ -11,11 +11,8 @@ RUN npm install
 # Copia el resto de los archivos del proyecto
 COPY . .
 
-# Construye la aplicación React con Vite
-RUN npm run build
-
-# Expone el puerto 8080 en el contenedor
+# Expone el puerto 8080 utilizado por Vite
 EXPOSE 8080
 
-# Comando para ejecutar la aplicación
-CMD ["npm", "run", "preview"]
+# Ejecuta Vite como servidor de desarrollo
+CMD ["npm", "run", "dev"]
