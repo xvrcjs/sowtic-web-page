@@ -6,6 +6,7 @@ Sitio web corporativo construido con **React**, **TypeScript** y **Vite**. El pr
 
 - **React 18** + **TypeScript**
 - **Vite** como empaquetador y servidor de desarrollo
+- **@vitejs/plugin-react** para integracion con React
 - **React Router DOM** para el ruteo de la aplicación
 - **Bootstrap 5** y **React‑Bootstrap** para la maquetación visual
 - **Sass** para estilos personalizados (`src/styles`)
