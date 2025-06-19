@@ -1,0 +1,111 @@
+// Required
+@import "../node_modules/bootstrap/scss/functions";
+
+// Default variable overrides
+$secondary:#BEE9FF;
+// Required
+@import "../node_modules/bootstrap/scss/variables";
+@import "../node_modules/bootstrap/scss/variables-dark";
+@import "../node_modules/bootstrap/scss/maps";
+@import "../node_modules/bootstrap/scss/mixins";
+@import "../node_modules/bootstrap/scss/root";
+
+@font-face {
+  font-family: 'Montserrat', sans-serif;
+  src: url(./fonts/static/Montserrat-Regular.ttf);
+  font-style: normal;
+  font-weight: 500;
+}
+@font-face {
+  font-family: 'Montserrat', sans-serif;
+  src: url(./fonts/static/Montserrat-RegularItalic.ttf);
+  font-style: italic;
+  font-weight: 500;
+}
+@font-face {
+  font-family: 'Montserrat', sans-serif;
+  src: url(./fonts/static/Montserrat-MediumBold.ttf);
+  font-style: normal;
+  font-weight: 600;
+}
+html, body{
+  font-family: 'Montserrat', sans-serif!important;
+}
+.btn{
+  border-radius: 5000px;
+  font-weight: 500;
+  font-size: 1.3rem;
+  @media screen and (max-width:768px) and (orientation: portrait) {
+    font-size: 1rem;
+  }
+  @media screen and (max-width:460px) { 
+    font-size: .85rem;
+  }
+}
+h1,h2{
+  font-size: 3.75rem;
+  font-weight: 700;  
+  @media screen and (max-width:992px) { 
+    font-size: 3rem;
+  }
+  @media screen and (max-width:576px) and (orientation: portrait) { 
+    font-size:2.75rem ;
+  }
+  @media screen and (max-width:460px) { 
+    font-size:1.75rem ;
+  }
+}
+h3{
+  font-size: 2.8125rem;
+  font-weight: 700;
+  @media screen and (max-width:1200px) {
+    font-size: 2.25rem;
+  }
+  @media screen and (max-width:992px) {
+    font-size: 2rem;
+  }
+}
+h4{
+  font-size: 1.5rem;
+  font-weight: 700;
+  @media screen and (max-width:460px) { 
+    font-size: 1rem;
+  }
+}
+h5{
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+.subtitle{
+  font-size: 1.5rem;
+  font-weight: 400;
+  @media screen and (max-width:1200px) {
+    font-size: 1.125rem;
+  }
+  @media screen and (max-width:992px) {
+    font-size: 1rem;
+  }
+}
+p{
+  font-size: 1rem;
+  font-weight: 400;
+}
+.btn-primary svg {
+  fill: #fff;
+}
+.txt-celest, .txt-celest svg {
+  color: #3881C0;
+  fill: #3881C0;
+}
+.btn-secondary {
+  --bs-btn-color: #1D1D1B;
+  --bs-btn-bg: #BEE9FF;
+  --bs-btn-border-color:#BEE9FF;
+}
+.mb-6 {
+  margin-bottom: 72px!important;
+}
+main {
+  position: relative;
+  overflow: clip;
+}

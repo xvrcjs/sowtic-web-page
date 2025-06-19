@@ -1,0 +1,40 @@
+
+.header{
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    &:not(.solid-nav) {
+        .navbar-toggler{
+            border-color: #fff;
+        }
+    }
+    .navbar-brand {
+        padding: 1.5rem 38px 1.5rem 82px;
+        @media screen and (max-width: 992px){
+            padding: 0 18px 0 42px;
+        }
+    }
+    .nav-link {
+        padding-right: 1.3rem!important;
+        color: #fff;
+    }
+    @media screen and (max-width: 991px) {
+        &:has(.navbar-collapse.show) {
+            background-color: #fff!important;
+            .navbar-brand{
+                filter: invert(1);
+            }        
+        }
+        .navbar-collapse .nav-link {
+            color: #000;
+        }
+    }
+}
+.solid-nav{
+    background-color: #fff;        
+    .nav-link {
+        color: #000;        
+    }
+    .navbar-brand{
+        filter: brightness(0);
+    }
+}

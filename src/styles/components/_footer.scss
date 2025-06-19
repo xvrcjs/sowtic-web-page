@@ -1,0 +1,38 @@
+footer{
+    padding: 11.8rem 0rem 1rem;
+    background-image: url(/img/footer-bg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #fff;
+    .contact__form{
+        padding: 0 9rem;
+        @media screen and (max-width:992px) {
+            padding: 0 6.5rem;
+        }
+        @media screen and (max-width:768px) {
+            padding: 0 2.5rem;
+        }
+    }
+    .contact__form .form-label{
+        font-size: .875rem;
+    }
+    .contact__form  .form-control{
+        min-height: 3.7rem;
+    }
+    .highlight-2{
+        position: relative;   
+    }
+    .highlight-2:before{
+            position: absolute;
+        background-image: url(/img/Ellipse-650.svg);
+        background-size: 100%;
+        background-repeat: no-repeat;
+        width: 110%;
+        height: 86px;
+        content: "";
+        left: -10px;
+        top: -4px;
+    }
+}
+
+

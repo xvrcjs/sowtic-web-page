@@ -1,0 +1,27 @@
+.card.card__trasparent {
+    background-color: rgba(255,255,255,.2);
+    border: 1px solid rgba(255,255,255,.04);
+    box-shadow: 0px 32px 32px 0px #101318A3;
+    color: #fff;
+    padding: 32px 32px 24px;
+    border-radius: 32px;
+    height: 100%;
+    button.btn {
+      font-size: 20px;
+      font-weight: 500;
+      text-align: center;
+      background-color: #FFFFFF33;
+      padding: 8px 16px;
+      border-radius: 32px;
+      color: #fff;
+      margin: 40px 0;
+      border-color: transparent;
+    }
+    p {
+      text-align: center;
+    }
+    &:hover{
+      box-shadow: 0px 36px 36px 0px #101318AA;
+      cursor: pointer;
+    }
+  }
