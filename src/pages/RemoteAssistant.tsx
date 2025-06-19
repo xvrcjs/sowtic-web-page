@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Col, Row, Container, Button } from "react-bootstrap"
-import { MainBanner, ContentStripe, CardTransparent, CaruselCollapse } from "../components"
+import { MainBanner, ContentStripe, CardTransparent, CarouselCollapse } from "../components"
 import { Fade } from "react-awesome-reveal";
 import BannerService from '../services/bannerService';
 import {
@@ -74,7 +74,7 @@ const RemoteAssistant = () => {
                 <Row>
                     <h2 className="text-center pb-5">¿Qué problemas resuelve?</h2>
                 </Row>
-                <CaruselCollapse dataCollapse={getBannerId(5)}/>
+                <CarouselCollapse dataCollapse={getBannerId(5)}/>
             </Container>
             <Container fluid className="how__work benefits"> 
                 <Row className="justify-content-center">
