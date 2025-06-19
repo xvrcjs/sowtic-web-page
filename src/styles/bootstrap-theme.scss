@@ -7,10 +7,10 @@
 @use "sass:map";
 
 /* Load Bootstrap once, injecting our overrides */
-@use "../../node_modules/bootstrap/scss/bootstrap" with (
+@use "./vendor/bootstrap/bootstrap" with (
   $primary: #0084FF,
   $secondary: #BEE9FF,
 );
 
 /* Re-export Bootstrap for other modules */
-@forward "../../node_modules/bootstrap/scss/bootstrap";
+@forward "./vendor/bootstrap/bootstrap";

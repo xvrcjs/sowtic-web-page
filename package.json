@@ -8,7 +8,8 @@
     "dev": "vite --host --port 8080",
     "build": "tsc && vite build --base=./",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "bootstrap:migrate": "rimraf src/styles/vendor/bootstrap && cp -R node_modules/bootstrap/scss src/styles/vendor/bootstrap && npx sass-migrator module src/styles/vendor/bootstrap/**/*.scss && npx sass-migrator color-functions src/styles/vendor/bootstrap/**/*.scss"
   },
   "dependencies": {
     "@emailjs/browser": "^3.12.1",
@@ -36,6 +37,8 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
     "sass": "^1.69.5",
+    "sass-migrator": "^1.69.5",
+    "rimraf": "^5.0.0",
     "typescript": "^5.2.2",
     "vite": "^5.0.8"
   }

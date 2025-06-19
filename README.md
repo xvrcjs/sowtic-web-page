@@ -90,6 +90,16 @@ El contenedor utiliza el servidor de desarrollo de Vite, por lo que cualquier ca
 - El formulario de contacto (`ContactUs`) envía correos mediante EmailJS y utiliza reCAPTCHA para verificar al usuario.
 - Los datos mostrados (banners, tarjetas, textos) se obtienen actualmente de archivos TypeScript en `src/services/databaseInMemory/`.
 
+## Actualizar Bootstrap SCSS
+
+Si actualizas la versión de Bootstrap, puedes migrar los archivos SCSS con:
+
+```bash
+npm run bootstrap:migrate
+```
+
+El script copia las fuentes de `node_modules/bootstrap` a `src/styles/vendor/bootstrap/` y las transforma con `sass-migrator` para eliminar avisos deprecados.
+
 ## Contribución
 
 1. Crea un fork del proyecto y genera una rama para tus cambios.
