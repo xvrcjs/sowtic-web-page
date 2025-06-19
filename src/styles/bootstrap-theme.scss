@@ -1,5 +1,16 @@
-// Bootstrap theme overrides
-$primary: #0084FF !default;
-$secondary: #BEE9FF !default;
+/* ---------------------------------------------------------------------------
+   Bootstrap v5 – custom theme layer
+   Define brand colors + any other Sass variables BEFORE Bootstrap is loaded.
+   We pass them through the `with()` config map so they are injected into
+   Bootstrap’s scope instead of redeclared afterwards.
+--------------------------------------------------------------------------- */
+@use "sass:map";
 
-@use "../../node_modules/bootstrap/scss/bootstrap" as *;
+/* Load Bootstrap once, injecting our overrides */
+@use "../../node_modules/bootstrap/scss/bootstrap" with (
+  $primary: #0084FF,
+  $secondary: #BEE9FF,
+);
+
+/* Re-export Bootstrap for other modules */
+@forward "../../node_modules/bootstrap/scss/bootstrap";
