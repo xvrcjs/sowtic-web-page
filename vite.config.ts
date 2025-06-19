@@ -11,5 +11,5 @@ export default defineConfig({
       },
     },
   },
-  logLevel: "warn",
+  logLevel: "info",
 });
