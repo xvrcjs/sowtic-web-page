@@ -28,7 +28,7 @@ const MainBanner = (props: MainBannerProps) => {
                             <Link to ="/home"><Button variant="light" className=" px-4 mb-5">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                                     <path d="M11.4375 18.75L4.6875 12L11.4375 5.25M5.625 12L19.3125 12" stroke="#1D1D1B"
-                                        stroke-width="2" stroke-miterlimit="10" stroke-linecap="square" />
+                                        strokeWidth="2" strokeMiterlimit="10" strokeLinecap="square" />
                                 </svg>
                                 Volver a home
                             </Button></Link>
