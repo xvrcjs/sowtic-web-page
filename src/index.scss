@@ -1,5 +1,5 @@
 // Global style entry point
-@forward "./styles/bootstrap-theme";
+@use "./styles/bootstrap-theme.scss";
 @use "./styles/index" as *;
 
 
