@@ -2,12 +2,13 @@ import {
     createBrowserRouter,
     //createHashRouter,
 } from "react-router-dom";
-import {Layout, Home, RemoteAssistant, SmartRutines, ImageComputing, InventaryControl } from "./pages/index.ts";
+import App from "./App";
+import { Home, RemoteAssistant, SmartRutines, ImageComputing, InventaryControl } from "./pages/index.ts";
 
 export const router = createBrowserRouter([
     {
         path: "/",
-        element: <Layout />,
+        element: <App />,
         children: [
             {
                 path: "/",
