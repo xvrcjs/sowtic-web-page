@@ -23,6 +23,12 @@ function App() {
   const handleSubscribe = (): void => {
     setCount((c) => c + 1);
     ReactGA.event({ category: 'User', action: 'Clicked Subscribe' });
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', 'click_subscribe', {
+        event_category: 'User',
+        event_label: 'Subscribe Button',
+      });
+    }
   };
 
   return (

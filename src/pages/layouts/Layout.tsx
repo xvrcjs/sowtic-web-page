@@ -1,7 +1,6 @@
 import { Outlet } from "react-router-dom";
 import { Header, Footer, ScrollToTop } from "../../components";
 import ScrollToHashElement from "../../components/shared/ScrollToHasElement";
-import usePageTracking from "../../hooks/usePageTracking";
 
 /**
  * Application layout with header and footer.
@@ -9,7 +8,6 @@ import usePageTracking from "../../hooks/usePageTracking";
  * @returns JSX.Element layout container.
  */
 const Layout = () => {
-    usePageTracking();
     return (
         <>
             <ScrollToTop />
@@ -22,3 +20,4 @@ const Layout = () => {
 }
 
 export default Layout
+
