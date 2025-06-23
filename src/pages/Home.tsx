@@ -23,9 +23,9 @@ const Home = () => {
     const [data, setData] = useState<BannerInterface[]>([]);
     const bannerService = new BannerService();
     
-    useEffect( () => {
-        bannerService.getAllByPage('home').then((res) => res ? setData(res) :null);
-    }, data );
+    useEffect(() => {
+        bannerService.getAllByPage('home').then((res) => res ? setData(res) : null);
+    }, []);
 
     const getBannerId = (id: number) => {
         const bannerInfo = data.filter( (res) => res.id === id)
@@ -42,9 +42,8 @@ const Home = () => {
     return (
         <>
             <main className="home">
-                { getBannerId(0)?.map((main:MainInterface) => {
-                    return (                     
-                        <MainBanner>
+                { getBannerId(0)?.map((main: MainInterface) => (
+                        <MainBanner key={main.id}>
                             <Fade triggerOnce direction='right' duration={2800} className="position-absolute z-2 second-img d-none d-sm-block">
                                 <img src={main.image}  className='w-100'/>
                             </Fade>
@@ -67,8 +66,7 @@ const Home = () => {
                                 <img src="./img/chip-02.png" className='w-100'/>
                             </Fade>
                         </MainBanner>
-                    )
-                })} 
+                ))}
                 <Container fluid id="industr4point0" className="">
                     <Row className='four__industry justify-content-between'>
                         <Col xs="12" md="6" className="order-2 order-md-1 graph-container">
@@ -140,11 +138,18 @@ const Home = () => {
                 </Container>
                 <Container fluid className="software__services">
                     <h2 className="text-center mb-4">Software as a service</h2>
-                    { getBannerId(2)?.map((stripe:StripeInterface) => {
-                        return ( 
-                        <ContentStripe imageRight={stripe.imageRight} image={stripe.image} title={stripe.title} text={stripe.text} buttonText={stripe.buttonText} buttonUrl={stripe.buttonUrl} buttonIcon={stripe.buttonPathIcon} /> 
-                        )
-                    })}                    
+                    { getBannerId(2)?.map((stripe: StripeInterface) => (
+                        <ContentStripe
+                            key={stripe.id}
+                            imageRight={stripe.imageRight}
+                            image={stripe.image}
+                            title={stripe.title}
+                            text={stripe.text}
+                            buttonText={stripe.buttonText}
+                            buttonUrl={stripe.buttonUrl}
+                            buttonIcon={stripe.buttonPathIcon}
+                        />
+                    ))}
                 </Container>
                 <section className="devices-container" id="devices">
                     <Container className="devices">

@@ -5,7 +5,7 @@ import {
 } from "react-router-dom";
 import {Layout, Home, RemoteAssistant, SmartRutines, ImageComputing, InventaryControl } from "./pages/index.ts";
 
-const router = createBrowserRouter ([
+const router = createBrowserRouter([
     {
         path: "/",
         element: <Layout />,
@@ -36,7 +36,11 @@ const router = createBrowserRouter ([
             }
         ]
     },
-]);
+], {
+    future: {
+        v7_startTransition: true,
+    },
+});
 
 /**
  * React Router provider wrapper.
