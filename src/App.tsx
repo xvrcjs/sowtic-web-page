@@ -1,5 +1,4 @@
 import usePageTracking from './hooks/usePageTracking';
-import Layout from './pages/layouts/Layout';
 
 /**
  * Demo application component.
@@ -10,9 +9,9 @@ import Layout from './pages/layouts/Layout';
  * <App />
  * ```
  */
-function App(): JSX.Element {
+function App(): JSX.Element | null {
   usePageTracking();
-  return <Layout />;
+  return null;
 }
 
 export default App
