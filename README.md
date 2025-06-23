@@ -84,6 +84,15 @@ Si prefieres no instalar las dependencias de Node.js en tu máquina, puedes leva
 
 El contenedor utiliza el servidor de desarrollo de Vite, por lo que cualquier cambio en los archivos del proyecto se reflejará automáticamente.
 
+## Levantar la aplicación con Docker Compose
+
+1. Asegúrate de tener Docker y Docker Compose instalados.  
+2. Ejecuta:
+   ```bash
+   docker-compose up --build
+   ```
+   Accede a http://localhost:8080 en tu navegador.
+
 ## Uso
 
 - Navegar por las distintas páginas a través del menú principal.
