@@ -1,11 +1,10 @@
 import {
     createBrowserRouter,
     //createHashRouter,
-    RouterProvider
 } from "react-router-dom";
 import {Layout, Home, RemoteAssistant, SmartRutines, ImageComputing, InventaryControl } from "./pages/index.ts";
 
-const router = createBrowserRouter([
+export const router = createBrowserRouter([
     {
         path: "/",
         element: <Layout />,
@@ -41,16 +40,3 @@ const router = createBrowserRouter([
         v7_startTransition: true,
     },
 });
-
-/**
- * React Router provider wrapper.
- *
- * @returns JSX.Element routing component.
- */
-function Router() {
-    return(
-        <RouterProvider router={router} />
-    )
-}
-
-export default Router

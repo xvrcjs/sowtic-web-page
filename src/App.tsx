@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { BrowserRouter } from 'react-router-dom';
+import { RouterProvider } from 'react-router-dom';
 import ReactGA from 'react-ga';
-import Router from './router.tsx';
+import { router } from './router.tsx';
 import usePageTracking from './hooks/usePageTracking';
 import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg';
@@ -32,8 +32,7 @@ function App() {
   };
 
   return (
-    <BrowserRouter>
-      <>
+    <>
         <div>
           <a href="https://vitejs.dev" target="_blank">
             <img src={viteLogo} className="logo" alt="Vite logo" />
@@ -54,9 +53,8 @@ function App() {
         <p className="read-the-docs">
           Click on the Vite and React logos to learn more
         </p>
-        <Router />
+        <RouterProvider router={router} />
       </>
-    </BrowserRouter>
   );
 }
 
