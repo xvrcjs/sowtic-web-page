@@ -4,7 +4,8 @@ import { Fade } from "react-awesome-reveal";
 
 interface MainBannerProps {
   buttonBack?: boolean;
-  children: React.ReactNode;
+  // Se marca children como opcional para permitir usar el banner sin contenido interno
+  children?: React.ReactNode;
 }
 
 /**

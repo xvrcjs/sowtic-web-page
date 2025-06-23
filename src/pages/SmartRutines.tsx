@@ -51,10 +51,18 @@ const SmartRutines = () => {
                 <h2 className="text-center mb-5">¿Qué es Smart Rutines?</h2>
                 <Col xs="12" md="8" className="mx-auto text-center subtitle">Un servicio que optimiza y automatiza las rutinas de control de seguridad y calidad en las plantas industriales.</Col>
                 { getBannerId(2)?.map((stripe:StripeInterface) => {
-                    return ( 
-                    <ContentStripe imageRight={stripe.imageRight} image={stripe.image} title={stripe.title} text={stripe.text} buttonText={stripe.buttonText} buttonUrl={stripe.buttonUrl} buttonIcon={stripe.buttonPathIcon} /> 
+                    return (
+                        <ContentStripe
+                            imageRight={stripe.imageRight}
+                            image={stripe.image ?? ''} // Valor por defecto para evitar undefined
+                            title={stripe.title ?? ''}
+                            text={stripe.text ?? ''}
+                            buttonText={stripe.buttonText}
+                            buttonUrl={stripe.buttonUrl}
+                            buttonIcon={stripe.buttonPathIcon}
+                        />
                     )
-                })}   
+                })}
             </Container>
             <Container fluid className="how__work">
                 <Row className="justify-content-center">

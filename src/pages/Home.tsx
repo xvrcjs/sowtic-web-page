@@ -142,7 +142,15 @@ const Home = () => {
                     <h2 className="text-center mb-4">Software as a service</h2>
                     { getBannerId(2)?.map((stripe:StripeInterface) => {
                         return ( 
-                        <ContentStripe imageRight={stripe.imageRight} image={stripe.image} title={stripe.title} text={stripe.text} buttonText={stripe.buttonText} buttonUrl={stripe.buttonUrl} buttonIcon={stripe.buttonPathIcon} /> 
+                        <ContentStripe
+                            imageRight={stripe.imageRight}
+                            image={stripe.image ?? ''} // Valor por defecto para evitar undefined
+                            title={stripe.title ?? ''}
+                            text={stripe.text ?? ''}
+                            buttonText={stripe.buttonText}
+                            buttonUrl={stripe.buttonUrl}
+                            buttonIcon={stripe.buttonPathIcon}
+                        />
                         )
                     })}                    
                 </Container>

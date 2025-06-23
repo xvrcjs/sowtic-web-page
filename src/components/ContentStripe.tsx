@@ -3,9 +3,9 @@ import { Button, Col, Row } from "react-bootstrap"
 import { Fade } from "react-awesome-reveal";
 
 interface ContentStripeProps {
-  image: string;
-  title: string;
-  text: string;
+  image?: string;
+  title?: string;
+  text?: string;
   buttonText?: string;
   buttonUrl?: string;
   buttonIcon?: string;
@@ -28,21 +28,26 @@ const ContentStripe = (props: ContentStripeProps) => {
         buttonIcon,
         imageRight,
     } = props;
+    // Aseguramos valores por defecto para evitar pasar undefined a componentes que esperan string
+    const safeUrl: string = buttonUrl ?? '';
+    const safeImage: string = image ?? '';
+    const safeTitle: string = title ?? '';
+    const safeText: string = text ?? '';
     return (
         <Row className="align-items-lg-center mb-4 gy-3 content-stripe">
             <Col xs="12" md="5" lg="6" className={"col-img " + (imageRight ? "ps-md-0 order-0" : "pe-md-0 order-1") }>
                 <Fade triggerOnce direction={imageRight ? 'left' : 'right'}>
-                    <img className="w-100 mb-3 my-md-0" src={image} />
+                    <img className="w-100 mb-3 my-md-0" src={safeImage} />
                 </Fade>
             </Col>
             <Col xs="12" md="6" lg="5" className={(imageRight ? "pe-xl-5 ps-md-5 order-1" : "offset-md-1 ps-xl-5 pe-md-5 order-0")}>
                 <Fade triggerOnce direction={imageRight ? 'right' : 'left'}>
-                    <h3>{title}</h3>
+                    <h3>{safeTitle}</h3>
                     <p className="subtitle py-3">
-                        {text}
+                        {safeText}
                     </p>
                     {buttonText ?
-                        <Link to={buttonUrl}>
+                        <Link to={safeUrl}>
                             <Button variant='primary' className="">
                                 {buttonText}
                                 <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960"
@@ -59,3 +64,4 @@ const ContentStripe = (props: ContentStripeProps) => {
 }
 
 export default ContentStripe
+

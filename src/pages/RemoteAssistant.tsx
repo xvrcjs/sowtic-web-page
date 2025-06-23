@@ -52,10 +52,18 @@ const RemoteAssistant = () => {
                 <Col xs="12" md="8" className="mx-auto text-center subtitle">Un servicio que potencia el soporte técnico de
                     expertos a través de una asistencia remota con anteojos de realidad mixta.</Col>
                 { getBannerId(2)?.map((stripe:StripeInterface) => {
-                    return ( 
-                    <ContentStripe imageRight={stripe.imageRight} image={stripe.image} title={stripe.title} text={stripe.text} buttonText={stripe.buttonText} buttonUrl={stripe.buttonUrl} buttonIcon={stripe.buttonPathIcon} /> 
+                    return (
+                        <ContentStripe
+                            imageRight={stripe.imageRight}
+                            image={stripe.image ?? ''} // Valor por defecto para evitar undefined
+                            title={stripe.title ?? ''}
+                            text={stripe.text ?? ''}
+                            buttonText={stripe.buttonText}
+                            buttonUrl={stripe.buttonUrl}
+                            buttonIcon={stripe.buttonPathIcon}
+                        />
                     )
-                })}   
+                })}
             </Container>
             <Container fluid className="how__work">
                 <Row className="justify-content-center">

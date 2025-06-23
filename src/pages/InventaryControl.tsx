@@ -51,10 +51,18 @@ const InventaryControl = () => {
                 <h2 className="text-center mb-5">¿Qué es el Control de inventario?</h2>
                 <Col xs="12" md="8" className="mx-auto text-center subtitle">Una solución integral que brinda eficiencia y precisión en el rastreo y administración del stock.</Col>
                 { getBannerId(2)?.map((stripe:StripeInterface) => {
-                    return ( 
-                    <ContentStripe imageRight={stripe.imageRight} image={stripe.image} title={stripe.title} text={stripe.text} buttonText={stripe.buttonText} buttonUrl={stripe.buttonUrl} buttonIcon={stripe.buttonPathIcon} /> 
+                    return (
+                        <ContentStripe
+                            imageRight={stripe.imageRight}
+                            image={stripe.image ?? ''} // Valor por defecto para evitar undefined
+                            title={stripe.title ?? ''}
+                            text={stripe.text ?? ''}
+                            buttonText={stripe.buttonText}
+                            buttonUrl={stripe.buttonUrl}
+                            buttonIcon={stripe.buttonPathIcon}
+                        />
                     )
-                })}   
+                })}
             </Container>
             <Container fluid className="how__work">
                 <Row className="justify-content-center">

@@ -2,7 +2,8 @@ import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
 interface Props {
-  children: React.ReactNode;
+  // Se permite omitir children para usar el componente como wrapper vacío
+  children?: React.ReactNode;
 }
 
 /**
