@@ -6,7 +6,7 @@
 - [Instalación](#instalación)
 - [Uso de Docker](#uso-de-docker)
 - [Comandos](#comandos)
-- [Estructura](#estructura
+- [Estructura](#estructura)
 - [Estructura del DOM](#estructura-del-dom)
 - [Ejemplos de uso](#ejemplos-de-uso)
 - [Documentación por carpetas](#documentación-por-carpetas)
