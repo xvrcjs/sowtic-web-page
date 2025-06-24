@@ -3,9 +3,9 @@ import { Col, Row, Container, Card, Button, Fade } from "react-bootstrap"
 import { MainBanner, ContentStripe } from "../components"
 
 /**
- * Image computing service page.
+ * Página del servicio Image Computing.
  *
- * @returns JSX.Element page content.
+ * @returns JSX.Element contenido de la página.
  */
 const ImageComputing = () => {
     const [open, setOpen] = useState(false);

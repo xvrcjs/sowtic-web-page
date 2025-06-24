@@ -5,9 +5,9 @@ import { ContactUs } from "./shared/ContatUs"
 
 
 /**
- * Page footer with contact form and links.
+ * Pie de página con formulario de contacto y enlaces.
  *
- * @returns JSX.Element website footer.
+ * @returns JSX.Element pie de página.
  */
 const Footer = () =>{
     return (        

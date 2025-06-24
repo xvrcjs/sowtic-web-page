@@ -1,3 +1,4 @@
+// Exporta todas las páginas y layouts
 import Layout from "./layouts/Layout"
 import Home from "./Home"
 import RemoteAssistant from "./RemoteAssistant"

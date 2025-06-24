@@ -13,10 +13,10 @@ interface ContentStripeProps {
 }
 
 /**
- * Section with image and text stripe.
+ * Sección con imagen y texto a modo de franja.
  *
- * @param props - stripe data.
- * @returns JSX.Element stripe section.
+ * @param props - datos de la franja.
+ * @returns JSX.Element sección renderizada.
  */
 const ContentStripe = (props: ContentStripeProps) => {
     const {

@@ -2,7 +2,7 @@ import { useMemo, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
 /**
- * Scrolls smoothly to the element referenced by the URL hash.
+ * Hace scroll suave al elemento referenciado por el hash de la URL.
  *
  * @returns null
  */

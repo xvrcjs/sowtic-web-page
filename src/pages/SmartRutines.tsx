@@ -11,9 +11,9 @@ import {
 } from "../services/interface/index";
 
 /**
- * Smart routines service page.
+ * Página del servicio Smart Rutines.
  *
- * @returns JSX.Element page content.
+ * @returns JSX.Element contenido de la página.
  */
 const SmartRutines = () => {
     

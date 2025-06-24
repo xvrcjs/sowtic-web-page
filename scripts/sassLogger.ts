@@ -1,7 +1,7 @@
 /**
- * Custom Sass logger
- * - Silences warnings originating from node_modules.
- * - Prints other warnings normally.
+ * Registrador personalizado de Sass.
+ * - Silencia advertencias que provienen de `node_modules`.
+ * - Muestra el resto de advertencias de forma normal.
  */
 import type { Logger } from "sass";
 
