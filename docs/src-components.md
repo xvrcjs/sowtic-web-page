@@ -3,6 +3,8 @@
 Esta sección documenta los componentes de alto nivel (excluyendo `shared`) que componen la interfaz. Se ordenan por archivo y se indican props, estado, relación con el layout y notas de estilos.
 
 ## CarouselCollapse
+- **Selector**: `.swiper-wrapper` y `.swiper-slide`  
+  *Ver `docs/ui-selectors.md` sección "Estructura de Swiper – `.swiper-wrapper` y `.swiper-slide`" para detalles de DOM y comportamiento.*
 - **Ruta:** `src/components/CarouselCollapse.tsx` y estilos en `src/styles/components/_carusel__collapse.scss`.
 - **Relación con la UI:** carrusel que muestra tarjetas con un detalle colapsable; suele ubicarse en secciones informativas como "qué resolvemos".
 - **Props:**
@@ -16,6 +18,8 @@ Esta sección documenta los componentes de alto nivel (excluyendo `shared`) que 
 - **Estilos y breakpoints:** el SCSS define clases como `.what__solve` y ajusta la altura del carrusel. Se utilizan `breakpoints` de Swiper y reglas `@media` para definir cuántas tarjetas se ven según el ancho de pantalla.
 
 ## ContentStripe
+- **Selector**: `.software__services`  
+  *Ver `docs/ui-selectors.md` sección "Servicios de software – `.software__services`" para detalles de DOM y comportamiento.*
 - **Ruta:** `src/components/ContentStripe.tsx` con estilos en `src/styles/components/_content__stripe.scss`.
 - **Relación con la UI:** franja de contenido con imagen y texto que puede invertirse (`imageRight`). Aparece en distintas secciones explicativas.
 - **Props:**
@@ -35,6 +39,8 @@ Esta sección documenta los componentes de alto nivel (excluyendo `shared`) que 
 - **Estilos y responsividad:** la hoja SCSS ajusta la posición de la imagen con `@media (max-width:768px)` para que se coloque primero en pantallas pequeñas (`order` de Bootstrap).
 
 ## Footer
+- **Selector**: `footer`  
+  *Ver `docs/ui-selectors.md` sección "Pie de página – `footer`" para detalles de DOM y comportamiento.*
 - **Ruta:** `src/components/Footer.tsx` con reglas en `src/styles/components/_footer.scss`.
 - **Relación con la UI:** pie de página que contiene el formulario de contacto y enlaces.
 - **Props:** no recibe props.
@@ -43,6 +49,8 @@ Esta sección documenta los componentes de alto nivel (excluyendo `shared`) que 
 - **Estilos y breakpoints:** el SCSS define la imagen de fondo y espacios internos (`padding`). Incluye reglas `@media` para reducir el `padding` en 992px y 768px.
 
 ## Header
+- **Selector**: `nav.header.navbar`  
+  *Ver `docs/ui-selectors.md` sección "Header – `nav.header.navbar`" para detalles de DOM y comportamiento.*
 - **Ruta:** `src/components/Header.tsx` con estilos en `src/styles/components/_header.scss`.
 - **Relación con la UI:** barra de navegación fija en la parte superior.
 - **Props:** no tiene props.
@@ -51,6 +59,8 @@ Esta sección documenta los componentes de alto nivel (excluyendo `shared`) que 
 - **Estilos y responsividad:** el SCSS aplica `padding` a la marca y cambia colores cuando la clase `solid-nav` está presente. Con `@media (max-width:991px)` se aplica un fondo blanco al abrir el menú colapsable.
 
 ## MainBanner
+- **Selector**: `.main__slider`  
+  *Ver `docs/ui-selectors.md` sección "Banner principal – `.main__slider`" para detalles de DOM y comportamiento.*
 - **Ruta:** `src/components/MainBanner.tsx` y estilos en `src/styles/components/_main__banner.scss`.
 - **Relación con la UI:** banner principal de cada página; admite un botón opcional para volver a la home.
 - **Props:**
