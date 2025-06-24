@@ -1,3 +1,4 @@
+// Configuración de Vite para el proyecto
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import sassSilencer from "./scripts/sassSilencer";

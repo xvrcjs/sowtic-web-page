@@ -4,18 +4,18 @@ import emailjs from "@emailjs/browser";
 import { Button, Card, Col, Form, Row } from 'react-bootstrap';
 
 /**
- * Handler for captcha change events.
+ * Maneja el cambio de estado del captcha.
  *
- * @param value - captcha token.
+ * @param value - token devuelto por reCAPTCHA.
  */
 function onChange(value: string | null) {
   console.log("Captcha value:", value);
 }
 
 /**
- * Contact form component.
+ * Componente de formulario de contacto.
  *
- * @returns JSX.Element contact form.
+ * @returns JSX.Element formulario de contacto.
  */
 export const ContactUs = () => {
   //const form = React.useRef();

@@ -6,10 +6,9 @@ interface Props {
 }
 
 /**
- * ScrollToTop component.
- * Smoothly scrolls to the top on every route change.
+ * Componente que realiza un scroll suave al inicio en cada cambio de ruta.
  *
- * @param props.children - elements wrapped by the provider
+ * @param props.children - elementos envueltos por el proveedor
  * @example
  * <BrowserRouter>
  *   <ScrollToTop>

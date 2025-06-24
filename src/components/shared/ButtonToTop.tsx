@@ -2,9 +2,9 @@ import { useState } from "react";
 import { Button } from "react-bootstrap";
 
 /**
- * Floating button that scrolls to the page top.
+ * Botón flotante que lleva la página al inicio.
  *
- * @returns JSX.Element scroll button.
+ * @returns JSX.Element botón de scroll.
  */
 const ButtonToTop = () => {
   const [show, setShow] = useState(false);

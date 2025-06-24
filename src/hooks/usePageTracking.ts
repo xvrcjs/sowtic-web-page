@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import ReactGA from 'react-ga';
 
-// Initialize Universal Analytics
+// Inicializa Universal Analytics
 ReactGA.initialize('UA-11390972495-1');
 
 const usePageTracking = (): void => {

@@ -1,4 +1,4 @@
-/** Component exports */
+/** Exporta todos los componentes de la carpeta */
 import Header from "./Header";
 import Footer from "./Footer";
 import ContentStripe from "./ContentStripe";

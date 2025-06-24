@@ -8,10 +8,10 @@ interface CardTransparentProps {
 }
 
 /**
- * Transparent card with fade animation.
+ * Tarjeta transparente con animación de aparición.
  *
- * @param props - card settings.
- * @returns JSX.Element transparent card.
+ * @param props - configuración de la tarjeta.
+ * @returns JSX.Element tarjeta renderizada.
  */
 const CardTransparent = (props: CardTransparentProps) => {
     const {

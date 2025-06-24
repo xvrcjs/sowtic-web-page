@@ -8,10 +8,10 @@ interface MainBannerProps {
 }
 
 /**
- * Main hero banner component.
+ * Componente de banner principal o hero.
  *
- * @param props - banner options.
- * @returns JSX.Element hero banner.
+ * @param props - opciones del banner.
+ * @returns JSX.Element banner renderizado.
  */
 const MainBanner = (props: MainBannerProps) => {
     const {

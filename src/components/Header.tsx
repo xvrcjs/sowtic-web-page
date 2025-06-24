@@ -3,9 +3,9 @@ import { Container, Navbar, Nav, NavDropdown, Button } from "react-bootstrap"
 import { useState } from "react";
 
 /**
- * Top navigation bar.
+ * Barra de navegación superior.
  *
- * @returns JSX.Element site header.
+ * @returns JSX.Element encabezado del sitio.
  */
 const Header = () => {
     const [solid, setSolid] = useState(false);

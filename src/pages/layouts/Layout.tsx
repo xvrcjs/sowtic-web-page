@@ -3,9 +3,9 @@ import { Header, Footer, ScrollToTop } from "../../components";
 import ScrollToHashElement from "../../components/shared/ScrollToHasElement";
 
 /**
- * Application layout with header and footer.
+ * Layout de la aplicación con cabecera y pie.
  *
- * @returns JSX.Element layout container.
+ * @returns JSX.Element contenedor de la vista.
  */
 const Layout = () => {
     return (
