@@ -11,9 +11,9 @@ import {
 } from "../services/interface/index";
 
 /**
- * Remote assistant service page.
+ * Página del servicio Remote Assistant.
  *
- * @returns JSX.Element page content.
+ * @returns JSX.Element contenido de la página.
  */
 const RemoteAssistant = () => {
     

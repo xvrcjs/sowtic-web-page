@@ -12,10 +12,10 @@ interface CarouselCollapseProps {
 }
 
 /**
- * Carousel component with collapsible descriptions.
+ * Carrusel de tarjetas con descripciones colapsables.
  *
- * @param dataCollapse - cards for each slide.
- * @returns JSX.Element carousel.
+ * @param dataCollapse - tarjetas a mostrar en cada slide.
+ * @returns JSX.Element carrusel renderizado.
  */
 const CarouselCollapse = ({ dataCollapse }: CarouselCollapseProps) => {
   const [open] = useState<boolean[]>([true, false]);

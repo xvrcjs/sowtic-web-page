@@ -8,9 +8,9 @@ import viteLogo from '/vite.svg';
 import './App.css';
 
 /**
- * Demo application component.
+ * Componente principal de demostración.
  *
- * @returns JSX.Element - rendered demo.
+ * @returns JSX.Element - demo renderizado.
  * @example
  * ```tsx
  * <App />

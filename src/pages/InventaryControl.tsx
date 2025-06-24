@@ -11,9 +11,9 @@ import {
 } from "../services/interface/index";
 
 /**
- * Inventory control service page.
+ * Página del servicio Control de Inventario.
  *
- * @returns JSX.Element page content.
+ * @returns JSX.Element contenido de la página.
  */
 const InventaryControl = () => {
     

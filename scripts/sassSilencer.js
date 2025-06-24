@@ -1,6 +1,7 @@
 /**
- * Custom Sass logger that mutes deprecation warnings originating from
- * src/styles/vendor/bootstrap/**  but keeps everything else.
+ * Registrador de Sass para silenciar los avisos de deprecación
+ * que provienen de `src/styles/vendor/bootstrap/**` y mostrar el
+ * resto de mensajes normalmente.
  */
 import path from "path";
 

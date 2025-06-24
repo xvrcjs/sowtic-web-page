@@ -1,3 +1,4 @@
+// Funciones auxiliares para Google Analytics
 export const pageview = (url: string): void => {
   if (typeof window.gtag !== 'undefined') {
     window.gtag('config', 'G-PS883B5CL3', { page_path: url });

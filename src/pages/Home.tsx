@@ -15,9 +15,9 @@ import {
 } from "../services/interface/index";
 
 /**
- * Home page component.
+ * Componente de la página principal.
  *
- * @returns JSX.Element home page.
+ * @returns JSX.Element página de inicio.
  */
 const Home = () => {
     const [data, setData] = useState<BannerInterface[]>([]);
