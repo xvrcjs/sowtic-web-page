@@ -6,7 +6,7 @@
 - [Instalación](#instalación)
 - [Uso de Docker](#uso-de-docker)
 - [Comandos](#comandos)
-- [Estructura](#estructura)
+- [Estructura](#estructura
 - [Estructura del DOM](#estructura-del-dom)
 - [Ejemplos de uso](#ejemplos-de-uso)
 - [Documentación por carpetas](#documentación-por-carpetas)
@@ -14,10 +14,8 @@
 - [Contribución](#contribución)
 - [Licencia](#licencia)
 - [Notas de credenciales](#notas-de-credenciales)
-
 ## Descripción
 Sitio web corporativo construido como SPA con **React** y **TypeScript**. Muestra los servicios y productos de Sowtic e incorpora formularios de contacto.
-
 ## Tecnologías
 - React 18 + TypeScript
 - Vite y @vitejs/plugin-react
