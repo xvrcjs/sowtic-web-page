@@ -151,6 +151,6 @@ Actualmente las claves de EmailJS y reCAPTCHA están definidas directamente en e
 ## 📖 Documentación publicada
 
 La documentación completa está disponible en GitHub Pages:
-https://usuario.github.io/repositorio/
+https://xvrcjs.github.io/sowtic-web-page/
 
 Si quieres editarla, encontrarás todos los archivos Markdown en la carpeta [`docs/`](docs/).

@@ -1,9 +1,15 @@
 title: Sowtic Web Page Docs
 description: Documentación técnica de Sowtic Web Page
 baseurl: ""
-url: "https://usuario.github.io/repositorio"
+url: "https://xvrcjs.github.io/sowtic-web-page"
 theme: minima
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
 markdown: kramdown
+defaults:
+  - scope:
+      path: ""
+      type: "markdown"
+    values:
+      layout: default
