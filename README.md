@@ -6,17 +6,16 @@
 - [Instalación](#instalación)
 - [Uso de Docker](#uso-de-docker)
 - [Comandos](#comandos)
-- [Estructura](#estructura)
+- [Estructura](#estructura
+- [Estructura del DOM](#estructura-del-dom)
 - [Ejemplos de uso](#ejemplos-de-uso)
 - [Documentación por carpetas](#documentación-por-carpetas)
 - [Documentación detallada](#documentación-detallada-de-archivos-y-carpetas)
 - [Contribución](#contribución)
 - [Licencia](#licencia)
 - [Notas de credenciales](#notas-de-credenciales)
-
 ## Descripción
 Sitio web corporativo construido como SPA con **React** y **TypeScript**. Muestra los servicios y productos de Sowtic e incorpora formularios de contacto.
-
 ## Tecnologías
 - React 18 + TypeScript
 - Vite y @vitejs/plugin-react
@@ -101,6 +100,16 @@ npm run build
 npm run preview
 ```
 En el navegador navega entre rutas como `/remote-assistant` o `/smart-rutines`. El formulario de contacto en `Footer` envía correos mediante EmailJS (IDs definidos en el código).
+
+## Estructura del DOM
+Resumen de los elementos principales renderizados:
+
+- `head` – metadatos, hojas de estilo globales y fuentes.
+- `div#root` – contenedor donde React monta la SPA.
+  - `<nav class="header navbar">` – barra de navegación implementada en `Header.tsx`.
+  - `<main class="home">` – slider y secciones de contenido que provienen de `Home.tsx`.
+  - `<footer>` – formulario de contacto y enlaces, definido en `Footer.tsx`.
+- Los scripts al final del cuerpo inicializan Swiper, animaciones y reCAPTCHA.
 
 ## Documentación por carpetas
 Se puede consultar la explicación detallada de cada archivo y directorio en las secciones siguientes de este documento.
