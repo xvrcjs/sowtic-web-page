@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # Configuración raíz del proyecto
 
 Este documento detalla los archivos principales en la raíz de **sowtic-web-page**. Se explica su propósito, configuración y cómo influyen en las tareas de desarrollo, build y producción.

@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # Datos simulados en `src/services/databaseInMemory/`
 
 Esta carpeta contiene arreglos estáticos que sirven como "base de datos" en memoria. Los servicios (`bannerService.ts`, `cardService.ts` y `stripeService.ts`) consumen esta información para suministrar contenido a las páginas.

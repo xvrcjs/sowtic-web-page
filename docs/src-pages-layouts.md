@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # Layouts en `src/pages/layouts/`
 
 Esta carpeta aloja los contenedores que envuelven a las distintas páginas. En la estructura actual solo existe un layout principal, utilizado para todas las rutas definidas en `router.tsx`.

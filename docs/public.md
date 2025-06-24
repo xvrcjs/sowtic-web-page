@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # Archivos estáticos en `public/`
 
 La carpeta `public/` contiene todos los recursos estáticos que Vite copia de forma literal a la carpeta `dist/`. Se incluyen el icono de la aplicación, fuentes y una colección de imágenes usadas por los componentes de React y las hojas de estilo.

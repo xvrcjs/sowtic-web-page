@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # Componentes reutilizables en `src/components/shared/`
 
 Esta carpeta contiene utilidades y widgets que se comparten entre varias páginas. A continuación se detallan los archivos y su funcionamiento.

@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # Documentación de selectores UI
 
 A continuación se describe la relación entre los selectores de la interfaz y su código fuente.

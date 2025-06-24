@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 | Componente | Selector CSS | Sección UI-Selectors | Doc Componente |
 |------------|--------------|---------------------|----------------|
 | CarouselCollapse (`src/components/CarouselCollapse.tsx`) | `.swiper-wrapper` y `.swiper-slide` | [Estructura de Swiper – `.swiper-wrapper` y `.swiper-slide`](ui-selectors.md#estructura-de-swiper-swiper-wrapper-y-swiper-slide) | [src-components.md#carouselcollapse](src-components.md#carouselcollapse) |

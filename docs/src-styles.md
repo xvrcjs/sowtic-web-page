@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # Estilos en `src/styles/`
 
 Esta carpeta contiene los archivos SCSS de la aplicación. Se divide en un archivo principal, un tema para Bootstrap y varios parciales de componentes.

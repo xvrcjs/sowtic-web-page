@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # Páginas en `src/pages/`
 
 Este documento resume la funcionalidad de cada página de la aplicación, la forma en que obtienen sus datos y las rutas configuradas en React Router.

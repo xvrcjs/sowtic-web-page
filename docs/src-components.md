@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # Componentes principales en `src/components/`
 
 Esta sección documenta los componentes de alto nivel (excluyendo `shared`) que componen la interfaz. Se ordenan por archivo y se indican props, estado, relación con el layout y notas de estilos.

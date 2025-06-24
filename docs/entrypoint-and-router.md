@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # Arranque y enrutado de la aplicación
 
 Este documento describe cómo se inicializa la SPA de Sowtic y la forma en que se configuran sus rutas principales.

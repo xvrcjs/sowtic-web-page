@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # Hooks personalizados en `src/hooks/`
 
 Esta carpeta almacena funciones React reutilizables que encapsulan l\u00f3gica com\u00fan. Actualmente solo existe un hook dedicado al seguimiento de p\u00e1ginas en Google Analytics.

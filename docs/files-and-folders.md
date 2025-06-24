@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # Documentación detallada de archivos y carpetas
 
 ### Dockerfile

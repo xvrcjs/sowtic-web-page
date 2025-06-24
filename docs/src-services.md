@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # Servicios en `src/services/`
 
 Esta carpeta contiene las clases que proveen datos a los componentes y páginas. Se alimentan de los ficheros en `databaseInMemory/` y exponen métodos asíncronos para obtener banners, tarjetas o secciones de tipo "stripe".

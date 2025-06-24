@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # Tipos e interfaces en `src/services/interface/`
 
 En esta carpeta se definen las estructuras de datos TypeScript que utilizan los servicios y componentes de la aplicación. Las interfaces extienden de una base común para compartir campos y se reexportan desde `index.ts`.

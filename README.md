@@ -11,6 +11,7 @@
 - [Ejemplos de uso](#ejemplos-de-uso)
 - [Documentación](#documentación)
 - [Documentación Detallada](#documentación-detallada)
+- [📖 Documentación publicada](#documentación-publicada)
 - [Contribución](#contribución)
 - [Licencia](#licencia)
 - [Notas de credenciales](#notas-de-credenciales)
@@ -120,6 +121,7 @@ El directorio `docs/` contiene varias guías sobre la estructura y el funcionami
 ## Documentación Detallada
 - [ui-selectors.md](docs/ui-selectors.md) - selectores de UI y referencia de CSS.
 - [src-components.md](docs/src-components.md) - componentes principales por sección.
+- [src-components-shared.md](docs/src-components-shared.md) - utilidades y widgets reutilizables.
 - [components-selectors-mapping.md](docs/components-selectors-mapping.md) - relación componentes–selectores.
 - [src-hooks.md](docs/src-hooks.md) - hooks personalizados y ejemplos de integración.
 - [src-services-databaseInMemory.md](docs/src-services-databaseInMemory.md) - archivos de datos simulados y notas de mejora.

@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # Recursos en `src/assets/`
 
 La carpeta `src/assets/` almacena archivos que se importan dentro del código React o las hojas de estilo para que Vite los procese. Al estar dentro de `src/`, Vite aplica optimizaciones automáticas: copia a `dist/` con nombres hashed, inlining en caso de tamaños pequeños y soporte para importación directa.
