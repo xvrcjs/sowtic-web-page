@@ -1,0 +1,9 @@
+title: Sowtic Web Page Docs
+description: Documentación técnica de Sowtic Web Page
+baseurl: ""
+url: "https://usuario.github.io/repositorio"
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+markdown: kramdown

@@ -145,3 +145,10 @@ No se declara una licencia explícita.
 ## Notas de credenciales
 Actualmente las claves de EmailJS y reCAPTCHA están definidas directamente en el código del formulario `ContatUs.tsx`. No se utilizan variables de entorno.
 
+
+## 📖 Documentación publicada
+
+La documentación completa está disponible en GitHub Pages:
+https://usuario.github.io/repositorio/
+
+Si quieres editarla, encontrarás todos los archivos Markdown en la carpeta [`docs/`](docs/).
