@@ -10,6 +10,7 @@
 - [Estructura del DOM](#estructura-del-dom)
 - [Ejemplos de uso](#ejemplos-de-uso)
 - [Documentación](#documentación)
+- [📚 Documentación Detallada](#documentación-detallada)
 - [Contribución](#contribución)
 - [Licencia](#licencia)
 - [Notas de credenciales](#notas-de-credenciales)
@@ -114,22 +115,24 @@ Resumen de los elementos principales renderizados:
 - Los scripts al final del cuerpo inicializan Swiper, animaciones y reCAPTCHA.
 
 ## Documentación
-El directorio `docs/` contiene varias guías sobre la estructura y el funcionamiento del proyecto:
-- [files-and-folders.md](docs/files-and-folders.md) - resumen de carpetas y archivos.
+El directorio `docs/` contiene varias guías sobre la estructura y el funcionamiento del proyecto.
+
+## 📚 Documentación Detallada
 - [ui-selectors.md](docs/ui-selectors.md) - selectores de UI y referencia de CSS.
-- [entrypoint-and-router.md](docs/entrypoint-and-router.md) - flujo de arranque de React y configuración del router.
-- [src-hooks.md](docs/src-hooks.md) - hooks personalizados y ejemplos de integración.
-- [src-styles.md](docs/src-styles.md) - organización de SCSS globales.
 - [src-components.md](docs/src-components.md) - componentes principales por sección.
-- [src-components-shared.md](docs/src-components-shared.md) - componentes reutilizables y sus props.
-- [src-pages.md](docs/src-pages.md) - páginas de la aplicación y datos consumidos.
-- [src-pages-layouts.md](docs/src-pages-layouts.md) - layout principal y relación con el router.
+- [components-selectors-mapping.md](docs/components-selectors-mapping.md) - relación componentes–selectores.
+- [src-hooks.md](docs/src-hooks.md) - hooks personalizados y ejemplos de integración.
+- [src-services-databaseInMemory.md](docs/src-services-databaseInMemory.md) - archivos de datos simulados y notas de mejora.
 - [src-services.md](docs/src-services.md) - servicios que proporcionan datos.
 - [src-services-interface.md](docs/src-services-interface.md) - definiciones TypeScript de las entidades.
-- [src-services-databaseInMemory.md](docs/src-services-databaseInMemory.md) - archivos de datos simulados y notas de mejora.
-- [src-assets.md](docs/src-assets.md) - recursos ubicados en `src/assets` y su uso.
-- [public.md](docs/public.md) - descripción de la carpeta `public/` y buenas prácticas.
+- [src-styles.md](docs/src-styles.md) - organización de SCSS globales.
+- [src-pages-layouts.md](docs/src-pages-layouts.md) - layout principal y relación con el router.
+- [src-pages.md](docs/src-pages.md) - páginas de la aplicación y datos consumidos.
+- [entrypoint-and-router.md](docs/entrypoint-and-router.md) - flujo de arranque de React y configuración del router.
 - [root-and-global-configuration.md](docs/root-and-global-configuration.md) - configuración en la raíz (Dockerfile, Vite, tsconfig...).
+- [files-and-folders.md](docs/files-and-folders.md) - resumen de carpetas y archivos.
+- [public.md](docs/public.md) - descripción de la carpeta `public/` y buenas prácticas.
+- [src-assets.md](docs/src-assets.md) - recursos ubicados en `src/assets` y su uso.
 
 ## Contribución
 1. Realiza un fork y crea una rama para tus cambios.
