@@ -10,7 +10,7 @@
 - [Estructura del DOM](#estructura-del-dom)
 - [Ejemplos de uso](#ejemplos-de-uso)
 - [Documentación](#documentación)
-- [📚 Documentación Detallada](#documentación-detallada)
+- [Documentación Detallada](#documentación-detallada)
 - [Contribución](#contribución)
 - [Licencia](#licencia)
 - [Notas de credenciales](#notas-de-credenciales)
@@ -117,7 +117,7 @@ Resumen de los elementos principales renderizados:
 ## Documentación
 El directorio `docs/` contiene varias guías sobre la estructura y el funcionamiento del proyecto.
 
-## 📚 Documentación Detallada
+## Documentación Detallada
 - [ui-selectors.md](docs/ui-selectors.md) - selectores de UI y referencia de CSS.
 - [src-components.md](docs/src-components.md) - componentes principales por sección.
 - [components-selectors-mapping.md](docs/components-selectors-mapping.md) - relación componentes–selectores.
