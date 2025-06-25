@@ -37,6 +37,9 @@ Sitio web corporativo construido como SPA con **React** y **TypeScript**. Muestr
    npm run dev
    ```
    El servidor se inicia en `http://localhost:8080`.
+   Si usas **ngrok** para exponer el proyecto, agrega el dominio generado en
+   `server.allowedHosts` dentro de `vite.config.ts` para evitar el mensaje
+   "Blocked request".
 4. Build de producción:
    ```bash
    npm run build
