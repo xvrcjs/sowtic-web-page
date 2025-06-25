@@ -67,27 +67,51 @@ Sitio web corporativo construido como SPA con **React** y **TypeScript**. Muestr
 ## Estructura
 ```text
 ├── Dockerfile
-├── index.html
-├── docs/
+├── README.md
+├── docs
+│   ├── components-selectors-mapping.md
+│   ├── entrypoint-and-router.md
 │   ├── files-and-folders.md
+│   ├── public.md
+│   ├── root-and-global-configuration.md
+│   ├── src-assets.md
+│   ├── src-components-shared.md
+│   ├── src-components.md
+│   ├── src-hooks.md
+│   ├── src-pages-layouts.md
+│   ├── src-pages.md
+│   ├── src-services-databaseInMemory.md
+│   ├── src-services-interface.md
+│   ├── src-services.md
+│   ├── src-styles.md
 │   └── ui-selectors.md
-├── public/
-├── src/
-│   ├── assets/
-│   ├── components/
-│   │   └── shared/
-│   ├── pages/
-│   │   └── layouts/
-│   ├── services/
-│   │   ├── databaseInMemory/
-│   │   └── interface/
-│   ├── styles/
-│   ├── hooks/
-│   ├── router.tsx
-│   ├── main.tsx
-│   └── index.scss
+├── index.html
+├── package-lock.json
 ├── package.json
+├── postcss.config.js
+├── public
+│   ├── fonts
+│   ├── img
+│   └── vite.svg
+├── scripts
+│   ├── sassLogger.ts
+│   └── sassSilencer.js
+├── src
+│   ├── App.css
+│   ├── App.tsx
+│   ├── assets
+│   ├── components
+│   ├── hooks
+│   ├── index.scss
+│   ├── main.tsx
+│   ├── pages
+│   ├── router.tsx
+│   ├── services
+│   ├── styles
+│   ├── utils
+│   └── vite-env.d.ts
 ├── tsconfig.json
+├── tsconfig.node.json
 └── vite.config.ts
 ```
 
