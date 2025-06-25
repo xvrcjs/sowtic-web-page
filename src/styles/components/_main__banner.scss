@@ -2,6 +2,8 @@
 .main__slider {
     min-height: 760px;
     color: #fff;
+    position: relative;
+    overflow: visible;
     @media screen and (max-width:992px) {
         min-height: 660px;            
     }
@@ -35,7 +37,9 @@
     .second-img {
         width: 90%;
         top: -295px;
-        right: -155px;
+        right: 0;
+        left: auto;
+        overflow: visible;
         &.ra-img {
             top: -120px;
             right: -400px;
