@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import { Container, Row, Col, Button, Modal, Card } from "react-bootstrap"
 import BannerService from '../services/bannerService';
-import { ContentStripe, MainBanner } from '../components';
+import { ContentStripe, HeroBanner } from '../components';
 import { Fade } from "react-awesome-reveal";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -43,29 +43,7 @@ const Home = () => {
         <>
             <main className="home">
                 { getBannerId(0)?.map((main: MainInterface) => (
-                        <MainBanner key={main.id}>
-                            <Fade triggerOnce direction='right' duration={2800} className="position-absolute z-2 second-img d-none d-sm-block">
-                                <img src={main.image}  className='w-100'/>
-                            </Fade>
-                            <Col xs={{ span: 11, offset: 1 }} md="5" xl="4" className="z-1 mb-5">
-                                <Fade triggerOnce direction='left' duration={2500}>
-                                    <h1>Descubra<br /> el <span className="highlight-1">Futuro</span> de la<br /> industria</h1>
-                                    <p className="subtitle mb-5">{main.text}</p>
-                                    <Button variant="secondary" className="" onClick={handleShow}>
-                                        Ver Video
-                                        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
-                                            <path d="M647-440H160v-80h487L423-744l57-56 320 320-320 320-57-56 224-224Z" />
-                                        </svg>
-                                    </Button>
-                                </Fade>
-                            </Col>
-                            <Fade triggerOnce direction='right' duration={3000} className="position-absolute chip-1 z-2 d-none d-md-block">
-                                <img src="./img/chip-01.png" className='w-100'/>                            
-                            </Fade>
-                            <Fade triggerOnce direction='right' duration={3400} className="position-absolute chip-2 z-2 d-none d-md-block">
-                                <img src="./img/chip-02.png" className='w-100'/>
-                            </Fade>
-                        </MainBanner>
+                        <HeroBanner key={main.id} title="Soluciones tecnológicas para tu empresa" subtitle={main.text} image="./img/agentes_chat.svg" onVideoClick={handleShow} />
                 ))}
                 <Container fluid id="industr4point0" className="">
                     <Row className='four__industry justify-content-between'>

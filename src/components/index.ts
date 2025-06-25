@@ -2,6 +2,7 @@
 import Header from "./Header";
 import Footer from "./Footer";
 import ContentStripe from "./ContentStripe";
+import HeroBanner from "./HeroBanner";
 import MainBanner from "./MainBanner";
 import CardTransparent from "./shared/CardTransparent";
 import CarouselCollapse from "./CarouselCollapse";
@@ -14,6 +15,7 @@ export {
   ContentStripe,
   CardTransparent,
   MainBanner,
+  HeroBanner,
   CarouselCollapse,
   ScrollToTop,
   ButtonToTop,
