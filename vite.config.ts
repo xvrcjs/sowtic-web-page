@@ -18,10 +18,8 @@ export default defineConfig({
     host: true,
     port: 8080,
     strictPort: true,
-    // Explicitly allow ngrok domain for external access
-    allowedHosts: [
-      "d59f-2800-810-5f6-429-dc71-6518-499-4cb7.ngrok-free.app",
-    ],
+    // Allow any ngrok domain (e.g. *.ngrok-free.app) for external access
+    allowedHosts: [/\.ngrok-free\.app$/],
   },
   logLevel: "info",
 });
