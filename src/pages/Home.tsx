@@ -44,12 +44,12 @@ const Home = () => {
             <main className="home">
                 { getBannerId(0)?.map((main: MainInterface) => (
                         <MainBanner key={main.id}>
-                            <Fade triggerOnce direction='right' duration={2800} className="position-absolute z-2 second-img d-none d-sm-block">
-                                <img src={main.image}  className='w-100'/>
+                        <Fade triggerOnce direction='right' duration={2800} className="position-absolute z-2 second-img d-none d-sm-block">
+                                <img src="./img/principal.png"  className='w-100'/>
                             </Fade>
                             <Col xs={{ span: 11, offset: 1 }} md="5" xl="4" className="z-1 mb-5">
                                 <Fade triggerOnce direction='left' duration={2500}>
-                                    <h1>Descubra<br /> el <span className="highlight-1">Futuro</span> de la<br /> industria</h1>
+                                    <h1></h1>
                                     <p className="subtitle mb-5">{main.text}</p>
                                     <Button variant="secondary" className="" onClick={handleShow}>
                                         Ver Video

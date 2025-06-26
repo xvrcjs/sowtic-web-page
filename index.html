@@ -21,5 +21,22 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <script type="module">
+      import { slideData } from '/src/constants/sliderContent.js';
+
+      // Espera a que el DOM cargue
+      document.addEventListener('DOMContentLoaded', () => {
+        // 1. Actualiza el <h1>
+        const heading = document.querySelector('.main__slider h1');
+        if (heading) {
+          heading.innerHTML = slideData.title;
+        }
+        // 2. Actualiza la imagen principal
+        const mainImg = document.querySelector('.second-img img');
+        if (mainImg) {
+          mainImg.src = slideData.imageSrc;
+        }
+      });
+    </script>
   </body>
 </html>
