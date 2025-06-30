@@ -1,40 +1,91 @@
-# Servicios en `src/services/`
+---
+section_id: "SRC-SERV-11"
+title: "Servicios de Negocio"
+version: "1.0"
+date: "2025-07-01"
+related_sections:
+  - "src-services-databaseInMemory.md"
+  - "src-services-interface.md"
+  - "summary-index.json"
+enforce:
+  - styleguide: "STYLEGUIDE.md"
+  - summary_index: "summary-index.json"
+agents:
+  - Code Agent
+  - Test Agent
+  - Doc Agent
+---
 
-Esta carpeta contiene las clases que proveen datos a los componentes y páginas. Se alimentan de los ficheros en `databaseInMemory/` y exponen métodos asíncronos para obtener banners, tarjetas o secciones de tipo "stripe".
-
-## bannerService.ts
-- **Ruta:** `src/services/bannerService.ts`.
-- **Métodos públicos:**
-  - `getAll(): Promise<BannerInterface[] | null>` – devuelve el arreglo completo `BANNERS`.
-  - `getAllById(bannerId: number): Promise<BannerInterface[] | null>` – filtra `BANNERS` por `id`.
-  - `getSpecificCard(bannerId: number, cardId: number): Promise<DataInterface | null>` – dentro del banner especificado busca una tarjeta por `id`.
-  - `getAllByIdAndPage(bannerId: number, page: string): Promise<DataInterface[] | null>` – selecciona los elementos del banner cuyo `page` contenga la cadena indicada.
-  - `getAllByPage(page: string): Promise<BannerInterface[] | null>` – mapea cada banner filtrando su `data` por página.
-- **Lógica interna:** los métodos utilizan `Array.filter`, `Array.find` y `Array.map` sobre el arreglo `BANNERS` importado desde `databaseInMemory/banner.ts`.
-- **Uso en componentes:** se instancia normalmente con `new BannerService()` dentro de las páginas (`Home`, `RemoteAssistant`, etc.) para cargar datos de secciones y carruseles.
-
-## cardService.ts
-- **Ruta:** `src/services/cardService.ts`.
-- **Métodos públicos:**
-  - `getAll(): Promise<CardInterface[] | null>` – retorna el arreglo `CARD` con todas las tarjetas.
-  - *(comentado)* `getAllByPage(page: string): Promise<CardInterface[] | null>` – estaba pensado para filtrar por `page` pero no se utiliza.
-- **Lógica interna:** simplemente devuelve la constante `CARD` importada desde `databaseInMemory/card.ts`.
-- **Uso en componentes:** se invoca de forma indirecta a través de `BannerService` porque las tarjetas se agrupan en `BANNERS`. Componentes como `CarouselCollapse` o `ContentStripe` reciben estos datos como props.
-
-## stripeService.ts
-- **Ruta:** `src/services/stripeService.ts`.
-- **Métodos públicos:**
-  - `getAll(): Promise<StripeInterface[] | null>` – entrega el arreglo `STRIPE` completo.
-  - *(comentado)* `getAllByPage(page: string): Promise<StripeInterface[] | null>` – disponible para un filtrado futuro por página.
-- **Lógica interna:** exporta directamente la constante `STRIPE` de `databaseInMemory/stripe.ts`.
-- **Uso en componentes:** tras obtener los datos con `BannerService.getAllByIdAndPage(2, 'home')`, se pasan a componentes como `ContentStripe` para renderizar bloques con imagen y texto.
-
-En general estos servicios funcionan como capas de abstracción muy delgadas sobre los datos en memoria. En una aplicación real podrían reemplazarse por peticiones HTTP a un backend o a un CMS. Para utilizarlos basta con importarlos en el componente o página correspondiente, por ejemplo:
-
-```ts
-import BannerService from "../services/bannerService";
-
-const service = new BannerService();
-const banners = await service.getAll();
+```json
+[
+  {
+    "name": "BannerService",
+    "file": "src/services/bannerService.ts",
+    "methods": [
+      { "name": "getAll",             "signature": "(): Promise<BannerInterface[] | null>" },
+      { "name": "getAllById",         "signature": "(bannerId: number): Promise<BannerInterface[] | null>" },
+      { "name": "getSpecificCard",    "signature": "(bannerId: number, cardId: number): Promise<DataInterface | null>" },
+      { "name": "getAllByIdAndPage",  "signature": "(bannerId: number, page: string): Promise<DataInterface[] | null>" },
+      { "name": "getAllByPage",       "signature": "(page: string): Promise<BannerInterface[] | null>" }
+    ],
+    "dependencies": ["databaseInMemory/banner.ts", "DataInterface", "CardInterface"],
+    "consumers": ["Home.tsx", "RemoteAssistant.tsx"],
+    "notes": ["Filtro y mapeo sobre BANNERS", "Podría refactorizarse a fetch HTTP"]
+  },
+  {
+    "name": "CardService",
+    "file": "src/services/cardService.ts",
+    "methods": [
+      { "name": "getAll",             "signature": "(): Promise<CardInterface[] | null>" }
+    ],
+    "dependencies": ["databaseInMemory/card.ts"],
+    "consumers": ["BannerService", "CarouselCollapse.tsx"],
+    "notes": ["Uso indirecto vía BannerService"]
+  },
+  {
+    "name": "StripeService",
+    "file": "src/services/stripeService.ts",
+    "methods": [
+      { "name": "getAll",             "signature": "(): Promise<StripeInterface[] | null>" }
+    ],
+    "dependencies": ["databaseInMemory/stripe.ts"],
+    "consumers": ["ContentStripe.tsx"],
+    "notes": ["Preparado para filtrado futuro por página"]
+  }
+]
 ```
+
+```mermaid
+graph TD
+  BannerService --> databaseInMemory/banner.ts
+  BannerService --> DataInterface
+  BannerService --> CardInterface
+  CardService    --> databaseInMemory/card.ts
+  StripeService  --> databaseInMemory/stripe.ts
+  BannerService --> CardService
+  ContentStripe  --> StripeService
+```
+
+## Criterios de Aceptación
+1. Cada servicio listado en el JSON existe en la ruta `file` y exporta los métodos con las firmas indicadas.
+2. Las entradas de `dependencies` apuntan a ficheros o interfaces que existen y están correctamente tipados.
+3. Los componentes en `consumers` importan el servicio y lo usan sin errores de compilación.
+4. El Code Agent puede refactorizar un servicio InMemory a uno que haga fetch HTTP manteniendo la misma interfaz.
+5. El Test Agent genera tests unitarios que simulen las dependencias InMemory y validen la lógica de filtrado/mapeo.
+
+[Code Agent]
+
+"Usa el JSON para refactorizar bannerService.ts a un cliente HTTP que llame a /api/banners, manteniendo la misma interfaz de métodos."
+
+[Test Agent]
+
+"Genera tests en Jest que:
+
+Mockeen fetch y devuelvan datos de ejemplo.
+
+Verifiquen que getAllByPage('home') filtra correctamente."
+
+[Doc Agent]
+
+"Actualiza src-services-interface.md y este archivo para documentar los nuevos endpoints y ejemplos de uso."
 
