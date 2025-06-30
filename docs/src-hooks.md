@@ -1,26 +1,59 @@
-# Hooks personalizados en `src/hooks/`
+---
+section_id: "SRC-HOOKS-08"
+title: "Hooks Personalizados"
+version: "1.0"
+date: "2025-07-01"
+related_sections:
+  - "entrypoint-and-router.md"
+  - "src-services-interface.md"
+enforce:
+  - styleguide: "STYLEGUIDE.md"
+  - summary_index: "summary-index.json"
+agents:
+  - Code Agent
+  - Test Agent
+  - Doc Agent
+---
 
-Esta carpeta almacena funciones React reutilizables que encapsulan l\u00f3gica com\u00fan. Actualmente solo existe un hook dedicado al seguimiento de p\u00e1ginas en Google Analytics.
-
-## usePageTracking
-- **Ruta del archivo:** `src/hooks/usePageTracking.ts`.
-- **Objetivo:** registrar una vista de p\u00e1gina cada vez que cambia la ubicaci\u00f3n del navegador. Se utiliza en el nivel superior de la aplicaci\u00f3n para integrar Google Analytics.
-- **L\u00f3gica interna:**
-  1. Importa `useEffect` y `useLocation` para detectar cambios en la URL.
-  2. Inicializa `ReactGA` con el c\u00f3digo de seguimiento y, dentro del efecto, llama a `ReactGA.pageview(page)`.
-  3. Si `window.gtag` est\u00e1 disponible, env\u00eda un evento `config` con la ruta actual para la versi\u00f3n GA4.
-  4. El efecto depende de `pathname` y `search` de `location`.
-- **Ejemplo de integraci\u00f3n:**
-  ```tsx
-  // src/App.tsx
-  import usePageTracking from "./hooks/usePageTracking";
-
-  function App() {
-    usePageTracking();
-    return (
-      <BrowserRouter>
-        <Router />
-      </BrowserRouter>
-    );
+[
+  {
+    "name": "usePageTracking",
+    "path": "src/hooks/usePageTracking.ts",
+    "dependencies": ["react-ga", "react-router-dom"],
+    "triggers": ["useEffect", "useLocation"],
+    "services": ["Google Analytics (GA4)"],
+    "notes": ["Env\u00eda pageview y evento config gtag"]
   }
-  ```
+]
+
+```mermaid
+graph LR
+  App --> usePageTracking
+  usePageTracking --> ReactGA.pageview
+  usePageTracking --> Gtag.config
+```
+
+[Code Agent]
+"Lee el JSON anterior y refactoriza usePageTracking.ts para:
+
+Extraer la l\u00f3gica de inicializaci\u00f3n en un hook useGAInit().
+
+A\u00f1adir manejo de errores si ReactGA.initialize falla.
+
+Mantener los side-effects bajo useEffect con dependencias [pathname, search]."
+
+[Test Agent]
+"Genera un test con React Testing Library que:
+
+Monte un componente ficticio usando usePageTracking.
+
+Simule cambios de ruta con MemoryRouter.
+
+Verifique que ReactGA.pageview y window.gtag se llamen correctamente."
+
+## Criterios de Aceptaci\u00f3n
+1. El JSON refleja todos los hooks en `src/hooks/`.
+2. `usePageTracking.ts` existe y exporta el hook con el nombre correcto.
+3. El Code Agent puede generar el refactor solicitado y pasa la compilaci\u00f3n de TypeScript.
+4. El Test Agent produce un test que cubre ambos flujos de GA y gtag.
+5. El Doc Agent actualiza la documentaci\u00f3n del hook en este archivo tras cualquier cambio.
