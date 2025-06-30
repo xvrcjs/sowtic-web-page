@@ -1,8 +1,67 @@
-| Componente | Selector CSS | Sección UI-Selectors | Doc Componente |
-|------------|--------------|---------------------|----------------|
-| CarouselCollapse (`src/components/CarouselCollapse.tsx`) | `.swiper-wrapper` y `.swiper-slide` | [Estructura de Swiper – `.swiper-wrapper` y `.swiper-slide`](ui-selectors.md#estructura-de-swiper-swiper-wrapper-y-swiper-slide) | [src-components.md#carouselcollapse](src-components.md#carouselcollapse) |
-| ContentStripe (`src/components/ContentStripe.tsx`) | `.software__services` | [Servicios de software – `.software__services`](ui-selectors.md#servicios-de-software-software__services) | [src-components.md#contentstripe](src-components.md#contentstripe) |
-| Footer (`src/components/Footer.tsx`) | `footer` | [Pie de página – `footer`](ui-selectors.md#pie-de-pagina-footer) | [src-components.md#footer](src-components.md#footer) |
-| Header (`src/components/Header.tsx`) | `nav.header.navbar` | [Header – `nav.header.navbar`](ui-selectors.md#header-navheadernavbar) | [src-components.md#header](src-components.md#header) |
-| MainBanner (`src/components/MainBanner.tsx`) | `.main__slider` | [Banner principal – `.main__slider`](ui-selectors.md#banner-principal-main__slider) | [src-components.md#mainbanner](src-components.md#mainbanner) |
+---
+section_id: "COMP-SELECT-02"
+title: "Mapeo Componentes → Selectores CSS"
+version: "1.0"
+date: "2025-06-30"
+related_sections:
+  - "ui-selectors.md"
+  - "src-components.md"
+enforce:
+  - styleguide: "STYLEGUIDE.md"
+  - summary_index: "summary-index.json"
+agents:
+  - Doc Agent
+  - Test Agent
+---
 
+# Componentes ↔ Selectores CSS
+
+```json
+[
+  {
+    "component": "CarouselCollapse",
+    "path": "src/components/CarouselCollapse.tsx",
+    "selectors": [".swiper-wrapper", ".swiper-slide"],
+    "ui_section": "ui-selectors.md#estructura-de-swiper-swiper-wrapper-y-swiper-slide",
+    "doc_section": "src-components.md#carouselcollapse"
+  },
+  {
+    "component": "ContentStripe",
+    "path": "src/components/ContentStripe.tsx",
+    "selectors": [".software__services"],
+    "ui_section": "ui-selectors.md#servicios-de-software-software__services",
+    "doc_section": "src-components.md#contentstripe"
+  },
+  {
+    "component": "Footer",
+    "path": "src/components/Footer.tsx",
+    "selectors": ["footer"],
+    "ui_section": "ui-selectors.md#pie-de-pagina-footer",
+    "doc_section": "src-components.md#footer"
+  },
+  {
+    "component": "Header",
+    "path": "src/components/Header.tsx",
+    "selectors": ["nav.header.navbar"],
+    "ui_section": "ui-selectors.md#header-navheadernavbar",
+    "doc_section": "src-components.md#header"
+  },
+  {
+    "component": "MainBanner",
+    "path": "src/components/MainBanner.tsx",
+    "selectors": [".main__slider"],
+    "ui_section": "ui-selectors.md#banner-principal-main__slider",
+    "doc_section": "src-components.md#mainbanner"
+  }
+]
+```
+
+Este mapeo relaciona cada componente React con los selectores CSS que inserta en el DOM. Sirve para que el Test Agent genere automáticamente pruebas E2E que verifiquen la presencia de estos elementos en la interfaz.
+
+*Usa este mapeo para generar un test E2E en Cypress que verifique que cada componente renderiza su selector correspondiente en el DOM.*
+
+## Criterios de Aceptación
+
+1. Para cada entrada JSON existe un test E2E que usa el selector para localizar el componente.
+2. Los tests se encuentran en `tests/e2e/selectors.spec.ts`.
+3. Cualquier cambio en componentes o selectores actualiza este archivo y hará fallar el CI si no coincide.

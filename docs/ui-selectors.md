@@ -2,7 +2,7 @@
 
 A continuación se describe la relación entre los selectores de la interfaz y su código fuente.
 
-## Header – `nav.header.navbar`
+## Header – `nav.header.navbar` {#header-navheadernavbar}
 - **Ruta del archivo**: `src/components/Header.tsx`
 - **Propósito**: Barra de navegación fija que contiene enlaces a las secciones y cambia de aspecto al hacer scroll.
 - **Implementación (JSX/TSX)**:
@@ -83,7 +83,7 @@ A continuación se describe la relación entre los selectores de la interfaz y s
 ```
 - **Estilos (SCSS)**: base en `src/index.scss` y componentes individuales.
 
-## Banner principal – `.main__slider`
+## Banner principal – `.main__slider` {#banner-principal-main__slider}
 - **Ruta del archivo**: `src/components/MainBanner.tsx` y `src/styles/components/_main__banner.scss`
 - **Propósito**: Sección de hero con imágenes superpuestas y contenido opcional.
 - **Implementación (JSX/TSX)**:
@@ -181,7 +181,7 @@ A continuación se describe la relación entre los selectores de la interfaz y s
 ```
 - **Estilos (SCSS)**: define márgenes y gradientes de las tarjetas `.bg-gradient-blue` y `.bg-gradient-violet` usadas en esta sección.
 
-## Servicios de software – `.software__services`
+## Servicios de software – `.software__services` {#servicios-de-software-software__services}
 - **Ruta del archivo**: páginas de servicios y `Home.tsx`; estilos en `src/styles/_index.scss`.
 - **Propósito**: Contenedor para las franjas de contenido que describen cada servicio.
 - **Implementación (JSX/TSX)**:
@@ -207,7 +207,7 @@ A continuación se describe la relación entre los selectores de la interfaz y s
 - **Estilos (SCSS)**: bloque `.devices` define dimensiones de la tarjeta `.product` y comportamiento al hover.
 - **Dependencias**: `swiper/react` y módulos de navegación.
 
-## Estructura de Swiper – `.swiper-wrapper` y `.swiper-slide`
+## Estructura de Swiper – `.swiper-wrapper` y `.swiper-slide` {#estructura-de-swiper-swiper-wrapper-y-swiper-slide}
 - **Ruta del archivo**: generados automáticamente por el componente `Swiper` de la librería `swiper/react` (ver `src/pages/Home.tsx`).
 - **Propósito**: Crear el contenedor de slides y cada elemento de producto.
 - **Implementación (JSX/TSX)**:
@@ -219,7 +219,7 @@ A continuación se describe la relación entre los selectores de la interfaz y s
 ```
 - **Estilos (SCSS)**: Swiper aplica sus propias clases; se complementan con reglas dentro de `.devices .product`.
 
-## Pie de página – `footer`
+## Pie de página – `footer` {#pie-de-pagina-footer}
 - **Ruta del archivo**: `src/components/Footer.tsx` y estilos en `src/styles/components/_footer.scss`.
 - **Propósito**: Contiene el formulario de contacto y enlaces secundarios.
 - **Implementación (JSX/TSX)**:
