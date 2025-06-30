@@ -1,3 +1,96 @@
+---
+section_id: "SRC-PAGES-10"
+title: "Páginas de la Aplicación"
+version: "1.0"
+date: "2025-07-01"
+related_sections:
+  - "entrypoint-and-router.md"
+  - "src-pages-layouts.md"
+  - "components-selectors-mapping.md"
+enforce:
+  - styleguide: "STYLEGUIDE.md"
+  - summary_index: "summary-index.json"
+agents:
+  - Code Agent
+  - Test Agent
+  - Doc Agent
+---
+
+```json
+[
+  {
+    "name": "Home",
+    "file": "src/pages/Home.tsx",
+    "paths": ["/", "/home"],
+    "services": ["BannerService.getAllByPage('home')"],
+    "components": ["MainBanner", "ContentStripe", "Swiper", "Fade", "Modal"],
+    "interactions": ["show Modal", "navigate to ContactForm"]
+  },
+  {
+    "name": "RemoteAssistant",
+    "file": "src/pages/RemoteAssistant.tsx",
+    "paths": ["/remote-assistant"],
+    "services": ["BannerService.getAllByPage('remote-assistant')"],
+    "components": ["MainBanner", "ContentStripe", "CardTransparent", "CarouselCollapse"],
+    "interactions": ["link to ContactForm", "expand CarouselCollapse"]
+  },
+  {
+    "name": "SmartRutines",
+    "file": "src/pages/SmartRutines.tsx",
+    "paths": ["/smart-rutines"],
+    "services": ["BannerService.getAllByPage('smart-rutines')"],
+    "components": ["MainBanner", "ContentStripe", "CardTransparent", "CarouselCollapse"],
+    "interactions": ["animations with react-awesome-reveal"]
+  },
+  {
+    "name": "ImageComputing",
+    "file": "src/pages/ImageComputing.tsx",
+    "paths": ["/image-computing"],
+    "services": [],
+    "components": ["MainBanner", "ContentStripe", "Card", "Fade"],
+    "interactions": ["toggle description on click"]
+  },
+  {
+    "name": "InventaryControl",
+    "file": "src/pages/InventaryControl.tsx",
+    "paths": ["/inventary-control"],
+    "services": ["BannerService.getAllByPage('inventary-control')"],
+    "components": ["MainBanner", "ContentStripe", "CardTransparent", "CarouselCollapse"],
+    "interactions": ["navigate to ContactForm"]
+  }
+]
+```
+
+```mermaid
+flowchart LR
+  Browser -->|"/"| Layout
+  Layout --> Home
+  Browser -->|"/remote-assistant"| Layout
+  Layout --> RemoteAssistant
+  Browser -->|"/smart-rutines"| Layout
+  Layout --> SmartRutines
+  Browser -->|"/image-computing"| Layout
+  Layout --> ImageComputing
+  Browser -->|"/inventary-control"| Layout
+  Layout --> InventaryControl
+```
+
+## Criterios de Aceptación
+1. Cada página definida en el JSON existe en disco y exporta el componente con el mismo `name`.
+2. Todos los `paths` están registrados en `src/router.tsx` y pasan pruebas de cobertura de rutas.
+3. Los servicios referenciados existen en `src/services/` y cumplen su contrato de interfaz.
+4. Los componentes listados se importan y renderizan correctamente en cada página.
+5. Las interacciones (modales, animaciones, navegación) tienen tests E2E automatizados generados por el Test Agent.
+
+[Code Agent]
+"Usa el JSON anterior para generar o actualizar src/router.tsx, importar cada página en el layout y asegurar que las rutas funcionan correctamente."
+
+[Test Agent]
+"Genera tests automatizados que iteren sobre los paths del JSON y verifiquen respuesta HTTP 200 y renderizado del componente correspondiente."
+
+[Doc Agent]
+"Refina esta sección con ejemplos de uso y enlaces cruzados a components-selectors-mapping.md para cada componente usado."
+
 # Páginas en `src/pages/`
 
 Este documento resume la funcionalidad de cada página de la aplicación, la forma en que obtienen sus datos y las rutas configuradas en React Router.
