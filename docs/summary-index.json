@@ -3,7 +3,7 @@
   { "id": "SUMMARY-02", "title": "Arranque y Enrutado", "file": "entrypoint-and-router.md" },
   { "id": "SUMMARY-03", "title": "Archivos y Carpetas", "file": "files-and-folders.md" },
   { "id": "SUMMARY-04", "title": "Carpeta Public y Recursos Estáticos", "file": "public.md" },
-  { "id": "SUMMARY-05", "title": "Configuración raíz del proyecto", "file": "root-and-global-configuration.md" },
+  { "id": "SUMMARY-05", "title": "Configuración Raíz y Global", "file": "root-and-global-configuration.md" },
   { "id": "SUMMARY-06", "title": "Recursos en src/assets", "file": "src-assets.md" },
   { "id": "SUMMARY-07", "title": "Componentes reutilizables en src/components/shared", "file": "src-components-shared.md" },
   { "id": "SUMMARY-08", "title": "Componentes principales en src/components", "file": "src-components.md" },

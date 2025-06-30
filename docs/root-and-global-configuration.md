@@ -1,6 +1,64 @@
-# Configuración raíz del proyecto
+---
+section_id: "ROOT-GLOBAL-02"
+title: "Configuración Raíz y Global"
+version: "1.0"
+date: "2025-07-01"
+related_sections:
+  - "files-and-folders.md"
+  - "entrypoint-and-router.md"
+  - "summary-index.json"
+enforce:
+  - styleguide: "STYLEGUIDE.md"
+  - summary_index: "summary-index.json"
+agents:
+  - Code Agent
+  - Doc Agent
+  - Test Agent
+---
 
-Este documento detalla los archivos principales en la raíz de **sowtic-web-page**. Se explica su propósito, configuración y cómo influyen en las tareas de desarrollo, build y producción.
+# Tabla JSON embebida
+```json
+[
+  {
+    "path": "Dockerfile",
+    "type": "file",
+    "purpose": "Imagen Node 18-alpine y bootstrap de SCSS de Bootstrap",
+    "sections": ["FROM", "WORKDIR", "COPY", "RUN", "CMD"]
+  },
+  {
+    "path": "index.html",
+    "type": "file",
+    "purpose": "Plantilla HTML para Vite; carga de fonts y GA4; punto de montaje de React",
+    "sections": ["doctype", "head", "body", "script"]
+  },
+  {
+    "path": "package.json",
+    "type": "file",
+    "purpose": "Definici\u00f3n de scripts, dependencias y metadatos del proyecto",
+    "sections": ["scripts", "dependencies", "devDependencies"]
+  },
+  {
+    "path": "tsconfig.json",
+    "type": "file",
+    "purpose": "Opciones de compilaci\u00f3n de TypeScript",
+    "sections": ["compilerOptions", "include", "exclude"]
+  },
+  {
+    "path": "vite.config.ts",
+    "type": "file",
+    "purpose": "Configuraci\u00f3n de Vite: plugins, servidor y CSS preprocesado",
+    "sections": ["plugins", "css", "server", "logLevel"]
+  }
+]
+```
+
+Este JSON describe de forma program\u00e1tica los archivos cr\u00edticos en la ra\u00edz del proyecto, sus roles y las secciones clave que configuran el entorno de desarrollo, build y producci\u00f3n.
+
+Enlaces directos a cada secci\u00f3n: [Dockerfile](#dockerfile), [index.html](#indexhtml), [package.json](#packagejson), [tsconfig.json](#tsconfigjson) y [vite.config.ts](#viteconfigts).
+
+# Configuraci\u00f3n Ra\u00edz y Global
+
+Este documento detalla los archivos principales en la ra\u00edz de **sowtic-web-page**. Se explica su prop\u00f3sito, configuraci\u00f3n y c\u00f3mo influyen en las tareas de desarrollo, build y producci\u00f3n.
 
 ## Dockerfile
 - **Ruta relativa**: `Dockerfile`
@@ -85,3 +143,12 @@ Este documento detalla los archivos principales en la raíz de **sowtic-web-page
 ---
 
 Estos archivos establecen la base del proyecto. Juntos permiten un flujo sencillo de desarrollo con `npm run dev`, construcción con `npm run build` y despliegue en Docker si se desea.
+
+[Code Agent]
+"Usa este JSON para generar un script scripts/validate-root.sh que verifique la presencia y contenido mínimo de cada sección en los archivos de la raíz, devolviendo error si faltan bloques esenciales."
+
+## Criterios de Aceptación
+1. Cada `path` del JSON existe en la raíz del repositorio.
+2. Cada archivo contiene las secciones o claves listadas en `sections`.
+3. La CI ejecuta `npm run validate-root` (o `scripts/validate-root.sh`) y falla si algún archivo o sección no coincide.
+4. Cualquier cambio en la raíz requiere actualizar este documento y refrescar `docs/summary-index.json`.
