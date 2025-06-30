@@ -22,3 +22,12 @@ Actualmente solo contiene el logotipo usado en la plantilla inicial:
 - **`public/`:** para archivos que se referencian por ruta estática en `index.html` o desde datos externos (por ejemplo, URLs en archivos JSON) y que deben copiarse tal cual.
 
 A medida que el proyecto crezca se recomienda colocar en `src/assets/` cualquier recurso estático consumido por componentes para beneficiarse del procesamiento automático de Vite, preferiblemente en formatos modernos como WebP y aplicando técnicas como carga diferida (`loading="lazy"`) si no son visibles al inicio.
+
+## Icono de Vite {#vite-icon}
+El archivo `public/vite.svg` se mantiene como favicon de la aplicación y se referencia de forma directa en `index.html`.
+
+## Definiciones de `@font-face` {#font-face-definitions}
+Las fuentes Montserrat ubicadas en `public/fonts/` se vinculan desde `src/index.scss` mediante varias reglas `@font-face` que definen pesos y estilos.
+
+## Imágenes de servicio {#service-images}
+Los JSON simulados en `src/services/databaseInMemory/` utilizan diversas imágenes almacenadas en `public/img/` para poblar tarjetas y banners de ejemplo.
