@@ -35,7 +35,6 @@ graph TD
   Layout --> Home
   Layout --> RemoteAssistant
   Layout --> SmartRutines
-  // …otras transiciones
 ```
 
 Este documento describe cómo se inicializa la SPA de Sowtic y la forma en que se configuran sus rutas principales.
@@ -91,7 +90,6 @@ routes:
     expected: "Home"
   - path: "/smart-rutines"
     expected: "SmartRutines"
-  # …otras rutas
 ```
 
 "Genera tests en Jest + React Testing Library que iteren este archivo YAML y verifiquen que cada ruta monta el componente correcto."
