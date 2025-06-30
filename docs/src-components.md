@@ -1,3 +1,71 @@
+---
+section_id: "SRC-COMP-07"
+title: "Componentes Principales"
+version: "1.0"
+date: "2025-07-01"
+related_sections:
+  - "components-selectors-mapping.md"
+  - "src-components-shared.md"
+enforce:
+  - styleguide: "STYLEGUIDE.md"
+  - summary_index: "summary-index.json"
+agents:
+  - Code Agent
+  - Test Agent
+  - Doc Agent
+---
+
+[
+  {
+    "name": "CarouselCollapse",
+    "path": "src/components/CarouselCollapse.tsx",
+    "selectors": [".swiper-wrapper", ".swiper-slide"],
+    "props": ["dataCollapse?: CardInterface[]"],
+    "hooks": ["useState<boolean[]>", "useState<number>"],
+    "layouts": ["Home"],
+    "styles": "src/styles/components/_carusel__collapse.scss",
+    "notes": ["Breakpoints de Swiper", "responsive"]
+  },
+  {
+    "name": "ContentStripe",
+    "path": "src/components/ContentStripe.tsx",
+    "selectors": [".software__services"],
+    "props": ["image", "title", "text", "buttonText?", "buttonUrl?", "buttonIcon?", "imageRight?"],
+    "hooks": [],
+    "layouts": ["Home", "RemoteAssistant"],
+    "styles": "src/styles/components/_content__stripe.scss",
+    "notes": ["animaciones con react-awesome-reveal"]
+  }
+  // …otros componentes
+]
+
+```mermaid
+graph LR
+  Layout --> CarouselCollapse
+  Layout --> ContentStripe
+  Layout --> Header
+  Layout --> Footer
+  Layout --> MainBanner
+```
+
+## Criterios de Aceptación
+1. Todos los componentes definidos en el JSON existen en disco y exportan las props listadas.
+2. Los ficheros SCSS referenciados en `styles` existen y contienen las clases correctas.
+3. El Test Agent puede generar tests de renderizado para cada componente usando React Testing Library.
+4. El Doc Agent puede enlazar automáticamente a `components-selectors-mapping.md` y `src-components-shared.md` según los selectores listados.
+
+[Code Agent]
+
+"Usa el JSON anterior para generar las interfaces TypeScript completas de cada componente, y crear un archivo src/components/index.ts que exporte automáticamente todos los componentes listados."
+
+[Test Agent]
+
+"Genera un test por componente en __tests__/components/ComponentName.spec.tsx que verifique el renderizado y su snapshot."
+
+[Doc Agent]
+
+"Actualiza components-selectors-mapping.md para incluir estos componentes y sus selectores, siguiendo el formato JSON y los anclajes correspondientes."
+
 # Componentes principales en `src/components/`
 
 Esta sección documenta los componentes de alto nivel (excluyendo `shared`) que componen la interfaz. Se ordenan por archivo y se indican props, estado, relación con el layout y notas de estilos.
