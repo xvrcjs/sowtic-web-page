@@ -1,0 +1,7 @@
+script: "check-structure.sh"
+entries:
+  - "Dockerfile"
+  - "index.html"
+  - "public/"
+  - "src/"
+  # …otras entradas
