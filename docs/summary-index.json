@@ -1,0 +1,18 @@
+[
+  { "id": "SUMMARY-01", "title": "Mapa de Componentes y Selectores", "file": "components-selectors-mapping.md" },
+  { "id": "SUMMARY-02", "title": "Arranque y Enrutado de la Aplicación", "file": "entrypoint-and-router.md" },
+  { "id": "SUMMARY-03", "title": "Archivos y Carpetas", "file": "files-and-folders.md" },
+  { "id": "SUMMARY-04", "title": "Archivos estáticos en public", "file": "public.md" },
+  { "id": "SUMMARY-05", "title": "Configuración raíz del proyecto", "file": "root-and-global-configuration.md" },
+  { "id": "SUMMARY-06", "title": "Recursos en src/assets", "file": "src-assets.md" },
+  { "id": "SUMMARY-07", "title": "Componentes reutilizables en src/components/shared", "file": "src-components-shared.md" },
+  { "id": "SUMMARY-08", "title": "Componentes principales en src/components", "file": "src-components.md" },
+  { "id": "SUMMARY-09", "title": "Hooks personalizados en src/hooks", "file": "src-hooks.md" },
+  { "id": "SUMMARY-10", "title": "Layouts en src/pages/layouts", "file": "src-pages-layouts.md" },
+  { "id": "SUMMARY-11", "title": "Páginas en src/pages", "file": "src-pages.md" },
+  { "id": "SUMMARY-12", "title": "Datos simulados en src/services/databaseInMemory", "file": "src-services-databaseInMemory.md" },
+  { "id": "SUMMARY-13", "title": "Tipos e interfaces en src/services/interface", "file": "src-services-interface.md" },
+  { "id": "SUMMARY-14", "title": "Servicios en src/services", "file": "src-services.md" },
+  { "id": "SUMMARY-15", "title": "Estilos en src/styles", "file": "src-styles.md" },
+  { "id": "SUMMARY-16", "title": "Documentación de selectores UI", "file": "ui-selectors.md" }
+]
