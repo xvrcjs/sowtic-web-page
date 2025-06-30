@@ -1,95 +1,79 @@
-# Componentes reutilizables en `src/components/shared/`
+---
+section_id: "SRC-COMP-SHARED-06"
+title: "Componentes Compartidos"
+version: "1.0"
+date: "2025-07-01"
+related_sections:
+  - "src-components.md"
+  - "components-selectors-mapping.md"
+enforce:
+  - styleguide: "STYLEGUIDE.md"
+  - summary_index: "summary-index.json"
+agents:
+  - Code Agent
+  - Design Agent
+  - Test Agent
+  - Doc Agent
+---
 
-Esta carpeta contiene utilidades y widgets que se comparten entre varias páginas. A continuación se detallan los archivos y su funcionamiento.
-
-## ButtonToTop
-- **Rutas:** `src/components/shared/ButtonToTop.tsx` y estilos en `src/styles/components/_button__top.scss`.
-- **Props esperados:** no recibe props.
-- **Estado y hooks:** utiliza `useState<boolean>` para mostrar u ocultar el botón y registra un manejador de `scroll` sobre `window`.
-- **Lógica de renderizado:** muestra un `<Button>` fijo en la esquina inferior derecha. El botón solo es visible cuando el usuario ha hecho *scroll* más de 80&nbsp;px. Al hacer clic desplaza la página hasta el inicio con `window.scrollTo`.
-- **Dependencias externas:** `react-bootstrap` para el componente `Button`.
-- **Ejemplo de uso:**
-  ```tsx
-  import ButtonToTop from "./shared/ButtonToTop";
-  
-  const Footer = () => (
-    <footer>
-      ...
-      <ButtonToTop />
-    </footer>
-  );
-  ```
-
-## CardTransparent
-- **Rutas:** `src/components/shared/CardTransparent.tsx` y `src/styles/components/_card__tansparent.scss`.
-- **Props esperados:**
-  ```ts
-  interface CardTransparentProps {
-    children: React.ReactNode;
-    textAlign?: string;
-    itemAlign?: string;
+[
+  {
+    "name": "ButtonToTop",
+    "path": "src/components/shared/ButtonToTop.tsx",
+    "selectors": [".btn-back-to-top"],
+    "dependencies": ["react-bootstrap"],
+    "hooks": ["useState", "useEffect"],
+    "examples": ["<ButtonToTop />"]
+  },
+  {
+    "name": "CardTransparent",
+    "path": "src/components/shared/CardTransparent.tsx",
+    "props": ["children", "textAlign", "itemAlign"],
+    "dependencies": ["react-bootstrap", "react-awesome-reveal"],
+    "examples": ["<CardTransparent textAlign=\"center\"/>"]
+  },
+  {
+    "name": "ContactUs",
+    "path": "src/components/shared/ContatUs.tsx",
+    "dependencies": ["react-bootstrap", "@emailjs/browser", "react-google-recaptcha"],
+    "examples": ["<ContactUs />"]
+  },
+  {
+    "name": "ScrollToHashElement",
+    "path": "src/components/shared/ScrollToHasElement.ts",
+    "dependencies": ["react-router-dom"],
+    "hooks": ["useLocation", "useMemo", "useEffect"],
+    "examples": ["<ScrollToHashElement />"]
+  },
+  {
+    "name": "ScrollToTop",
+    "path": "src/components/shared/ScrollToTop.tsx",
+    "props": ["children"],
+    "dependencies": ["react-router-dom"],
+    "hooks": ["useLocation", "useEffect"],
+    "examples": ["<ScrollToTop><AppRoutes /></ScrollToTop>"]
   }
-  ```
-- **Estado y hooks:** no mantiene estado interno. Usa el componente `Fade` de `react-awesome-reveal` para animar la aparición.
-- **Lógica de renderizado:** envuelve el contenido en `<Card className="card__trasparent ...">` y aplica las clases opcionales recibidas por props.
-- **Dependencias externas:** `react-bootstrap` (`Card`) y `react-awesome-reveal` para la animación.
-- **Ejemplo de uso:**
-  ```tsx
-  <CardTransparent textAlign="text-center" itemAlign="align-items-center">
-    <img src={card.image} />
-    <Button>{card.title}</Button>
-    <p>{card.text}</p>
-  </CardTransparent>
-  ```
+]
 
-## ContactUs
-- **Ruta:** `src/components/shared/ContatUs.tsx` (forma simplificada del nombre "ContactUs").
-- **Archivos de estilo:** reglas del formulario en `src/styles/components/_footer.scss` dentro del bloque `.contact__form`.
-- **Props esperados:** no recibe props.
-- **Estado y hooks:** define la función `sendEmail` para procesar el envío mediante `emailjs.sendForm`. También integra `reCAPTCHA` con `react-google-recaptcha`.
-- **Lógica de renderizado:** devuelve un `<Card>` con un `<Form>` de varios campos. Al enviarse, ejecuta `sendEmail` que envía los datos a EmailJS.
-- **Dependencias externas:** `react-bootstrap`, `@emailjs/browser` y `react-google-recaptcha`.
-- **Ejemplo de uso:**
-  ```tsx
-  import { ContactUs } from "./shared/ContatUs";
-  
-  const Footer = () => (
-    <Container fluid id="contact-form">
-      <ContactUs />
-    </Container>
-  );
-  ```
+```mermaid
+graph LR
+  ButtonToTop -->|usa| useState
+  ButtonToTop -->|usa| react-bootstrap
+  CardTransparent -->|usa| react-awesome-reveal
+  ContactUs -->|usa| emailjs
+  ScrollToHashElement -->|usa| react-router-dom
+  ScrollToTop -->|usa| react-router-dom
+```
 
-## ScrollToHasElement
-- **Ruta:** `src/components/shared/ScrollToHasElement.ts` (el componente se exporta como `ScrollToHashElement`).
-- **Props esperados:** no tiene props.
-- **Estado y hooks:** emplea `useLocation` para leer el `hash` actual, `useMemo` para obtener el elemento correspondiente y `useEffect` para desplazar la vista.
-- **Lógica de renderizado:** no devuelve contenido visual; cuando cambia la ubicación con un hash, busca el elemento con ese id y ejecuta `scrollIntoView({ behavior: 'smooth' })`.
-- **Dependencias externas:** `react-router-dom`.
-- **Ejemplo de uso:**
-  ```tsx
-  <BrowserRouter>
-    <ScrollToHashElement />
-    <App />
-  </BrowserRouter>
-  ```
+[Code Agent]
+"Revisa el JSON de src-components-shared.md y genera actualizaciones en los tests y Storybook para estos componentes, asegurando que cada path existe y que las props están tipadas correctamente en TypeScript."
 
-## ScrollToTop
-- **Ruta:** `src/components/shared/ScrollToTop.tsx`.
-- **Props esperados:**
-  ```ts
-  interface Props {
-    children: React.ReactNode;
-  }
-  ```
-- **Estado y hooks:** utiliza `useLocation` y `useEffect` para detectar cambios en la ruta.
-- **Lógica de renderizado:** cuando cambia `pathname` se ejecuta `window.scrollTo({ top: 0, behavior: 'smooth' })`. El componente simplemente renderiza `children` sin añadir nodos extra.
-- **Dependencias externas:** `react-router-dom`.
-- **Ejemplo de uso:**
-  ```tsx
-  <BrowserRouter>
-    <ScrollToTop>
-      <AppRoutes />
-    </ScrollToTop>
-  </BrowserRouter>
-  ```
+[Test Agent]
+"Crea tests unitarios con React Testing Library que rendericen cada componente del JSON, verifiquen hooks y props, y prueben snapshots en __tests__/shared/ComponentName.spec.tsx."
+
+## Criterios de Aceptación
+1. El bloque JSON refleja todos los componentes en `src/components/shared/`.
+2. Cada `path` es válido y los archivos existen.
+3. Los tests generados cubren al menos render + snapshot para cada componente.
+4. Storybook muestra un _story_ por componente con sus props documentadas.
+5. Las dependencias externas se importan correctamente y están en `package.json`.
