@@ -1,98 +1,126 @@
-# Tipos e interfaces en `src/services/interface/`
+---
+section_id: "SRC-SERVICE-IF-12"
+title: "Interfaces de Servicios"
+version: "1.0"
+date: "2025-07-01"
+related_sections:
+  - "src-services-databaseInMemory.md"
+  - "src-services.md"
+  - "summary-index.json"
+enforce:
+  - styleguide: "STYLEGUIDE.md"
+  - summary_index: "summary-index.json"
+agents:
+  - Code Agent
+  - Test Agent
+  - Doc Agent
+---
 
-En esta carpeta se definen las estructuras de datos TypeScript que utilizan los servicios y componentes de la aplicación. Las interfaces extienden de una base común para compartir campos y se reexportan desde `index.ts`.
+[
+  {
+    "file": "dataInterface.ts",
+    "export": "default DataInterface",
+    "path": "src/services/interface/dataInterface.ts",
+    "fields": [
+      { "name": "id",        "type": "number",   "required": true,  "description": "Identificador único" },
+      { "name": "bannerId",  "type": "number",   "required": true,  "description": "ID de banner asociado" },
+      { "name": "page",      "type": "string[]", "required": true,  "description": "Páginas donde aparece" }
+    ],
+    "extends": [],
+    "examples": [
+      "{ id: 1, bannerId: 0, page: ['home'] }"
+    ]
+  },
+  {
+    "file": "bannerInterface.ts",
+    "export": "default BannerInterface",
+    "path": "src/services/interface/bannerInterface.ts",
+    "fields": [
+      { "name": "id",   "type": "number",           "required": true,  "description": "ID del banner" },
+      { "name": "pos",  "type": "number",           "required": false, "description": "Posición opcional" },
+      { "name": "data", "type": "DataInterface[]",  "required": true,  "description": "Datos asociados" }
+    ],
+    "extends": [],
+    "examples": [
+      "{ id: 2, data: [{ id: 1, bannerId: 2, page: ['home'] }] }"
+    ]
+  },
+  {
+    "file": "cardInterface.ts",
+    "export": "default CardInterface",
+    "path": "src/services/interface/cardInterface.ts",
+    "fields": [
+      { "name": "number",      "type": "string", "required": false },
+      { "name": "heading",     "type": "string", "required": false },
+      { "name": "image",       "type": "string", "required": false },
+      { "name": "title",       "type": "string", "required": false },
+      { "name": "text",        "type": "string", "required": false },
+      { "name": "description", "type": "string", "required": false }
+    ],
+    "extends": ["DataInterface"],
+    "examples": [
+      "{ id:3, bannerId:2, page:['home'], image:'url', description:'text' }"
+    ]
+  },
+  {
+    "file": "mainInterface.ts",
+    "export": "default MainInterface",
+    "path": "src/services/interface/mainInterface.ts",
+    "fields": [
+      { "name": "image",      "type": "string",  "required": false },
+      { "name": "buttonBack", "type": "boolean", "required": false },
+      { "name": "subHeading", "type": "string",  "required": false },
+      { "name": "heading",    "type": "string",  "required": false },
+      { "name": "text",       "type": "string",  "required": false }
+    ],
+    "extends": ["DataInterface"],
+    "examples": [
+      "{ id:10, bannerId:1, page:['home'], image:'banner.jpg', heading:'Hi', text:'desc' }"
+    ]
+  },
+  {
+    "file": "stripeInterface.ts",
+    "export": "default StripeInterface",
+    "path": "src/services/interface/stripeInterface.ts",
+    "fields": [
+      { "name": "image",         "type": "string",  "required": false },
+      { "name": "title",         "type": "string",  "required": false },
+      { "name": "text",          "type": "string",  "required": false },
+      { "name": "buttonText",    "type": "string",  "required": false },
+      { "name": "buttonUrl",     "type": "string",  "required": false },
+      { "name": "buttonPathIcon","type": "string",  "required": false },
+      { "name": "imageRight",    "type": "boolean", "required": false }
+    ],
+    "extends": ["DataInterface"],
+    "examples": [
+      "{ id:20, bannerId:3, page:['about'], title:'t', text:'', imageRight:true }"
+    ]
+  }
+]
 
-## dataInterface.ts
-- **Ruta:** `src/services/interface/dataInterface.ts`.
-- **Propiedades:**
-  - `id: number` – identificador único del elemento.
-  - `bannerId: number` – referencia al banner al que pertenece.
-  - `page: string[]` – páginas en las que se muestra el elemento.
-- **Relaciones:** interfaz base para el resto de tipos.
-- **Ejemplo de uso:**
-  ```ts
-  import DataInterface from "../services/interface/dataInterface";
+```mermaid
+erDiagram
+  DataInterface ||--o{ BannerInterface : extends
+  DataInterface ||--o{ CardInterface   : extends
+  DataInterface ||--o{ MainInterface   : extends
+  DataInterface ||--o{ StripeInterface : extends
+```
 
-  const record: DataInterface = { id: 1, bannerId: 0, page: ['home'] };
-  ```
+## Criterios de Aceptación
+1. Cada archivo listado en el JSON existe en `src/services/interface/` y exporta la interfaz correcta.  
+2. Los campos (`fields`) coinciden al 100 % con las definiciones TypeScript.  
+3. Las relaciones de herencia (`extends`) se reflejan en el código real (uso de `extends`).  
+4. Los ejemplos JSON son válidos y parseables para tests de tipado.  
+5. El Test Agent puede generar tests de validación dinámica basados en este JSON.
 
-## bannerInterface.ts
-- **Ruta:** `src/services/interface/bannerInterface.ts`.
-- **Propiedades:**
-  - `id: number` – identificador del banner.
-  - `pos?: number` – posición o prioridad opcional.
-  - `data: DataInterface[]` – elementos asociados al banner.
-- **Relaciones:** agrupa un conjunto de `DataInterface`. No extiende de otra interfaz.
-- **Ejemplo de uso:**
-  ```ts
-  import BannerInterface from "../services/interface/bannerInterface";
-  import BannerService from "../services/bannerService";
+[Code Agent]
 
-  const service = new BannerService();
-  const banners: BannerInterface[] | null = await service.getAll();
-  ```
+"Usa el JSON de interfaces para generar automáticamente src/services/interface/index.ts que reexporte todas las interfaces y actualizar importaciones rotas en el proyecto."
 
-## cardInterface.ts
-- **Ruta:** `src/services/interface/cardInterface.ts`.
-- **Propiedades:**
-  - `number?: string` – numeración u orden de la tarjeta.
-  - `heading?: string` – título secundario.
-  - `image?: string` – ruta de la imagen ilustrativa.
-  - `title?: string` – título principal.
-  - `text?: string` – texto breve o descripción.
-  - `description?: string` – detalle adicional.
-- **Relaciones:** `extends DataInterface`, por lo que también incluye `id`, `bannerId` y `page`.
-- **Ejemplo de uso:**
-  ```tsx
-  import { CardInterface } from "../services/interface";
+[Test Agent]
 
-  const cards: CardInterface[] = getBannerId(1) ?? [];
-  ```
+"Genera tests en Jest o Vitest que importen cada interfaz, validen un ejemplo de JSON contra el tipo y fallen si no coincide."
 
-## mainInterface.ts
-- **Ruta:** `src/services/interface/mainInterface.ts`.
-- **Propiedades:**
-  - `image?: string` – imagen principal del banner.
-  - `buttonBack?: boolean` – si muestra flecha de retroceso.
-  - `subHeading?: string` – subtítulo opcional.
-  - `heading?: string` – encabezado principal.
-  - `text?: string` – párrafo descriptivo.
-- **Relaciones:** `extends DataInterface`.
-- **Ejemplo de uso:**
-  ```tsx
-  import { MainInterface } from "../services/interface";
+[Doc Agent]
 
-  { getBannerId(0)?.map((main: MainInterface) => (
-    <MainBanner key={main.id}>{/* ... */}</MainBanner>
-  )) }
-  ```
-
-## stripeInterface.ts
-- **Ruta:** `src/services/interface/stripeInterface.ts`.
-- **Propiedades:**
-  - `image?: string` – imagen del bloque.
-  - `title?: string` – título de la sección.
-  - `text?: string` – descripción breve.
-  - `buttonText?: string` – texto del botón opcional.
-  - `buttonUrl?: string` – enlace externo del botón.
-  - `buttonPathIcon?: string` – icono SVG para el botón.
-  - `imageRight?: boolean` – alinea la imagen a la derecha.
-- **Relaciones:** `extends DataInterface`.
-- **Ejemplo de uso:**
-  ```tsx
-  import { StripeInterface } from "../services/interface";
-
-  { getBannerId(2)?.map((stripe: StripeInterface) => (
-    <ContentStripe key={stripe.id} {...stripe} />
-  )) }
-  ```
-
-## index.ts
-- **Ruta:** `src/services/interface/index.ts`.
-- **Propósito:** reexporta todas las interfaces para simplificar las importaciones.
-- **Ejemplo:**
-  ```ts
-  import { BannerInterface, MainInterface } from "../services/interface";
-  ```
-
-Estas definiciones permiten tipar los datos que proveen los servicios (`bannerService`, `cardService`, `stripeService`) y facilitan el trabajo con `useState` en las páginas React.
+"Refina la documentación narrativa usando el JSON, añade enlaces a ejemplos de uso en los servicios (bannerService.ts, etc.) y actualiza anclas."

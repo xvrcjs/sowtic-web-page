@@ -11,7 +11,7 @@
   { "id": "SUMMARY-10", "title": "Layouts en src/pages/layouts", "file": "src-pages-layouts.md" },
   { "id": "SUMMARY-11", "title": "Páginas en src/pages", "file": "src-pages.md" },
   { "id": "SUMMARY-12", "title": "Datos simulados en src/services/databaseInMemory", "file": "src-services-databaseInMemory.md" },
-  { "id": "SUMMARY-13", "title": "Tipos e interfaces en src/services/interface", "file": "src-services-interface.md" },
+  { "id": "SUMMARY-13", "title": "Interfaces de Servicios", "file": "src-services-interface.md" },
   { "id": "SUMMARY-14", "title": "Servicios en src/services", "file": "src-services.md" },
   { "id": "SUMMARY-15", "title": "Estilos en src/styles", "file": "src-styles.md" },
   { "id": "SUMMARY-16", "title": "Documentación de selectores UI", "file": "ui-selectors.md" }
