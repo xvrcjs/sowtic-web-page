@@ -1,3 +1,58 @@
+---
+section_id: "UI-SELECTORS-13"
+title: "Mapeo de Selectores UI"
+version: "1.0"
+date: "2025-07-01"
+related_sections:
+  - "components-selectors-mapping.md"
+  - "src-components.md"
+  - "STYLEGUIDE.md"
+enforce:
+  - styleguide: "STYLEGUIDE.md"
+  - summary_index: "summary-index.json"
+agents:
+  - Code Agent
+  - Test Agent
+  - Doc Agent
+---
+
+Bloque JSON machine-readable
+```json
+[
+  {
+    "selector": "nav.header.navbar",
+    "component": "Header",
+    "file": "src/components/Header.tsx",
+    "scss": "_header.scss",
+    "notes": ["clase solid-nav al hacer scroll"]
+  },
+  {
+    "selector": "#toggle-menu",
+    "component": "Navbar.Toggle",
+    "file": "src/components/shared/Header.tsx",
+    "scss": null,
+    "notes": ["removeFocus tras 1s"]
+  },
+  {
+    "selector": ".main__slider",
+    "component": "MainBanner",
+    "file": "src/components/MainBanner.tsx",
+    "scss": "_main__banner.scss",
+    "notes": ["min-height 760px, z-index layering"]
+  }
+  // …otros selectores
+]
+```
+
+Diagrama Mermaid de cobertura
+```mermaid
+graph LR
+  Header --> nav.header.navbar
+  Navbar.Toggle --> #toggle-menu
+  MainBanner --> .main__slider
+  // …otras relaciones
+```
+
 # Documentación de selectores UI
 
 A continuación se describe la relación entre los selectores de la interfaz y su código fuente.
@@ -280,3 +335,28 @@ A continuación se describe la relación entre los selectores de la interfaz y s
 ```
 - **Notas de comportamiento**: el componente usa un estado `show` que se actualiza al hacer scroll para ocultar o mostrar el botón.
 
+
+[Test Agent]
+"Lee el JSON y genera tests en Playwright que:
+
+Carguen /home.
+
+Seleccionen cada selector y verifiquen que devuelven exactamente 1 elemento visible.
+
+Simulen scroll y comprueben que nav.header.navbar recibe la clase solid-nav."
+
+[Code Agent]
+"Usa este JSON para crear scripts/update-selectors.js que:
+
+Valide la existencia de cada selector en archivos TSX y SCSS bajo src/.
+
+Liste aquellos que faltan o hayan cambiado en un reporte JSON."
+
+[Doc Agent]
+"Refina la documentación narrativa: genera una tabla Markdown con columnas selector, component, file y notes, basándote en el JSON."
+
+## Criterios de Aceptación
+1. Cada `selector` del JSON existe en el DOM real y corresponde al `component` y `file` indicados.
+2. Las rutas SCSS (`scss`) apuntan a archivos válidos en `src/styles/components/`.
+3. El Test Agent puede generar un test E2E en Playwright que localice cada selector y verifique visibilidad y comportamientos (scroll, colapso, animación).
+4. El Code Agent puede refactorizar selectores en un único lugar actualizando este JSON y luego aplicar cambios en el código/estilos.
