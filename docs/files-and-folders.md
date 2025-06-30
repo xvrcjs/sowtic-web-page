@@ -1,3 +1,55 @@
+---
+section_id: "FILES-FOLDERS-01"
+title: "Estructura de Archivos y Carpetas"
+version: "1.0"
+date: "2025-07-01"
+related_sections:
+  - "root-and-global-configuration.md"
+  - "entrypoint-and-router.md"
+enforce:
+  - styleguide: "STYLEGUIDE.md"
+  - summary_index: "summary-index.json"
+agents:
+  - Code Agent
+  - Doc Agent
+  - Test Agent
+---
+
+# Tabla JSON embebida
+```json
+[
+  {
+    "path": "Dockerfile",
+    "type": "file",
+    "purpose": "Construir imagen Node 18 para desarrollo",
+    "notes": ["npm run bootstrap:migrate", "puerto 8080"]
+  },
+  {
+    "path": "index.html",
+    "type": "file",
+    "purpose": "Documento principal donde Vite inyecta scripts",
+    "notes": ["Google Fonts", "Google Analytics", "#root"]
+  },
+  {
+    "path": "public/",
+    "type": "folder",
+    "purpose": "Archivos estáticos copiados a dist/",
+    "notes": ["fonts/", "img/"]
+  },
+  {
+    "path": "src/",
+    "type": "folder",
+    "purpose": "Código fuente de la SPA",
+    "notes": ["components/", "pages/", "services/"]
+  }
+  // …otras entradas
+]
+```
+
+Este JSON define la estructura de alto nivel del proyecto. El Code Agent usará los campos `path` y `type` para validar que los ficheros y carpetas existen, y podrá generar un scaffold inicial si falta alguno.
+
+Toda modificación en la estructura debe reflejarse aquí y en `docs/summary-index.json` para mantener la documentación alineada con el repositorio.
+
 # Documentación detallada de archivos y carpetas
 
 ### Dockerfile
@@ -127,4 +179,24 @@
 
 ### .gitignore
 - Lista carpetas y archivos que no deben versionarse, como `dist` o `node_modules`.
+
+## Criterios de Aceptación
+1. Cada `path` del JSON existe en el repositorio (ver script de validación).
+2. La CI ejecuta `npm run check-structure` y falla si falta algo.
+3. Los cambios en archivos o carpetas actualizan automáticamente este JSON.
+
+Referencia a pruebas de estructura:
+
+```yaml
+script: "check-structure.sh"
+entries:
+  - "Dockerfile"
+  - "index.html"
+  - "public/"
+  - "src/"
+  # …otras entradas
+```
+
+[Code Agent]
+"Revisa la tabla JSON de files-and-folders.md y genera un script de CI (check-structure.sh) que valide que todas las rutas existen, devolviendo error si falta algún archivo o carpeta."
 
