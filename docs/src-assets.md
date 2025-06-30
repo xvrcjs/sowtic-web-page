@@ -1,4 +1,45 @@
+
+---
+section_id: "SRC-ASSETS-05"
+title: "Recursos en src/assets"
+version: "1.0"
+date: "2025-07-01"
+related_sections:
+  - "public.md"
+  - "files-and-folders.md"
+  - "src-styles.md"
+enforce:
+  - styleguide: "STYLEGUIDE.md"
+  - summary_index: "summary-index.json"
+agents:
+  - Code Agent
+  - Test Agent
+  - Doc Agent
+---
+
 # Recursos en `src/assets/`
+
+```json
+[
+  {
+    "path": "src/assets/react.svg",
+    "type": "svg",
+    "imported_in": ["src/App.tsx"],
+    "inline_threshold_kb": 10,
+    "notes": ["Mantener optimizado", "Agregar loading=\"lazy\" si no es above-the-fold"]
+  },
+  {
+    "path": "src/assets/logo.png",
+    "type": "image",
+    "imported_in": ["src/components/shared/Header.tsx"],
+    "inline_threshold_kb": 5,
+    "notes": ["Usar WebP en producción"]
+  }
+  // …otros recursos
+]
+```
+
+Este JSON lista todos los assets importados en código o estilos para que Vite los procese correctamente. El Code Agent leerá este bloque para validar imports y optimizar los archivos; el Test Agent generará tests que comprueben la carga y el rendimiento de cada recurso.
 
 La carpeta `src/assets/` almacena archivos que se importan dentro del código React o las hojas de estilo para que Vite los procese. Al estar dentro de `src/`, Vite aplica optimizaciones automáticas: copia a `dist/` con nombres hashed, inlining en caso de tamaños pequeños y soporte para importación directa.
 
@@ -31,3 +72,21 @@ Las fuentes Montserrat ubicadas en `public/fonts/` se vinculan desde `src/index.
 
 ## Imágenes de servicio {#service-images}
 Los JSON simulados en `src/services/databaseInMemory/` utilizan diversas imágenes almacenadas en `public/img/` para poblar tarjetas y banners de ejemplo.
+
+## Criterios de Aceptación
+1. Cada `path` del JSON existe y se importa sin error en TypeScript.
+2. El bundle final (`dist/`) incluye estos assets con nombres hasheados.
+3. Los archivos que superen `inline_threshold_kb` no se inyectan en base64.
+4. El Test Agent genera un test en Playwright que verifique que al cargar la home, la imagen `<img class="logo react">` responde con HTTP 200 y su URL contiene un hash.
+
+[Code Agent]
+"Usa el JSON de src-assets.md para:
+
+Validar que todos los archivos existen en disco.
+
+Comprimir SVGs >1 KB usando SVGO.
+
+Añadir loading="lazy" a los imports en componentes que no estén above-the-fold."
+
+[Test Agent]
+"Genera un test en Playwright que navegue a /, seleccione <img class='logo react'> y verifique que la petición HTTP devuelve código 200 y que la URL incluye un hash de versión."
