@@ -2,7 +2,7 @@
 
 Esta sección documenta los componentes de alto nivel (excluyendo `shared`) que componen la interfaz. Se ordenan por archivo y se indican props, estado, relación con el layout y notas de estilos.
 
-## CarouselCollapse
+## CarouselCollapse {#carouselcollapse}
 - **Selector**: `.swiper-wrapper` y `.swiper-slide`
   *Ver `ui-selectors.md` sección "Estructura de Swiper – `.swiper-wrapper` y `.swiper-slide`" para detalles de DOM y comportamiento.*
 - **Ruta:** `src/components/CarouselCollapse.tsx` y estilos en `src/styles/components/_carusel__collapse.scss`.
@@ -17,7 +17,7 @@ Esta sección documenta los componentes de alto nivel (excluyendo `shared`) que 
 - **Orquestación:** se utiliza dentro de páginas como `Home` para mostrar contenido dinámico. No se integra con el router, pero sí dentro del layout principal.
 - **Estilos y breakpoints:** el SCSS define clases como `.what__solve` y ajusta la altura del carrusel. Se utilizan `breakpoints` de Swiper y reglas `@media` para definir cuántas tarjetas se ven según el ancho de pantalla.
 
-## ContentStripe
+## ContentStripe {#contentstripe}
 - **Selector**: `.software__services`
   *Ver `ui-selectors.md` sección "Servicios de software – `.software__services`" para detalles de DOM y comportamiento.*
 - **Ruta:** `src/components/ContentStripe.tsx` con estilos en `src/styles/components/_content__stripe.scss`.
@@ -38,7 +38,7 @@ Esta sección documenta los componentes de alto nivel (excluyendo `shared`) que 
 - **Orquestación:** se incluye dentro de las páginas `Home`, `RemoteAssistant`, etc., como parte del contenido principal.
 - **Estilos y responsividad:** la hoja SCSS ajusta la posición de la imagen con `@media (max-width:768px)` para que se coloque primero en pantallas pequeñas (`order` de Bootstrap).
 
-## Footer
+## Footer {#footer}
 - **Selector**: `footer`
   *Ver `ui-selectors.md` sección "Pie de página – `footer`" para detalles de DOM y comportamiento.*
 - **Ruta:** `src/components/Footer.tsx` con reglas en `src/styles/components/_footer.scss`.
@@ -48,7 +48,7 @@ Esta sección documenta los componentes de alto nivel (excluyendo `shared`) que 
 - **Orquestación:** se renderiza en `Layout.tsx` después del `<Outlet>` de React Router, por lo que aparece en todas las páginas.
 - **Estilos y breakpoints:** el SCSS define la imagen de fondo y espacios internos (`padding`). Incluye reglas `@media` para reducir el `padding` en 992px y 768px.
 
-## Header
+## Header {#header}
 - **Selector**: `nav.header.navbar`
   *Ver `ui-selectors.md` sección "Header – `nav.header.navbar`" para detalles de DOM y comportamiento.*
 - **Ruta:** `src/components/Header.tsx` con estilos en `src/styles/components/_header.scss`.
@@ -58,7 +58,7 @@ Esta sección documenta los componentes de alto nivel (excluyendo `shared`) que 
 - **Orquestación:** incluido en `Layout.tsx` antes del `<Outlet>` para envolver todas las páginas. Contiene enlaces `<Link>` a las rutas configuradas en `router.tsx`.
 - **Estilos y responsividad:** el SCSS aplica `padding` a la marca y cambia colores cuando la clase `solid-nav` está presente. Con `@media (max-width:991px)` se aplica un fondo blanco al abrir el menú colapsable.
 
-## MainBanner
+## MainBanner {#mainbanner}
 - **Selector**: `.main__slider`
   *Ver `ui-selectors.md` sección "Banner principal – `.main__slider`" para detalles de DOM y comportamiento.*
 - **Ruta:** `src/components/MainBanner.tsx` y estilos en `src/styles/components/_main__banner.scss`.
