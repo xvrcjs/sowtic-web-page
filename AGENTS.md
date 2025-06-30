@@ -7,7 +7,7 @@ date: "2025-06-30"
 related_sections:
   - "files-and-folders.md"
   - "root-and-global-configuration.md"
-use_all_sections: false
+use_all_sections: true
 
 enforce:
   - styleguide: "STYLEGUIDE.md"
@@ -23,7 +23,6 @@ tech_stack:
   - Sass
   - Bootstrap
 
-template: "task-template.md"
 ---
 
 # Propósito
