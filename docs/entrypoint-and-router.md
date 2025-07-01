@@ -24,8 +24,10 @@ Esquema JSON de rutas
 [
   { "path": "/",                 "component": "Home",             "layout": "Layout" },
   { "path": "/home",             "component": "Home",             "layout": "Layout" },
+  { "path": "/smart-rutines",    "component": "SmartRutines",     "layout": "Layout" },
   { "path": "/remote-assistant", "component": "RemoteAssistant",  "layout": "Layout" },
-  // …otras rutas
+  { "path": "/image-computing",  "component": "ImageComputing",   "layout": "Layout" },
+  { "path": "/inventary-control","component": "InventaryControl", "layout": "Layout" },
 ]
 ```
 
@@ -33,8 +35,10 @@ Esquema JSON de rutas
 graph TD
   Browser -->|visita /| Layout
   Layout --> Home
-  Layout --> RemoteAssistant
   Layout --> SmartRutines
+  Layout --> RemoteAssistant
+  Layout --> ImageComputing
+  Layout --> InventaryControl
 ```
 
 Este documento describe cómo se inicializa la SPA de Sowtic y la forma en que se configuran sus rutas principales.
@@ -90,6 +94,12 @@ routes:
     expected: "Home"
   - path: "/smart-rutines"
     expected: "SmartRutines"
+  - path: "/remote-assistant"
+    expected: "RemoteAssistant"
+  - path: "/image-computing"
+    expected: "ImageComputing"
+  - path: "/inventary-control"
+    expected: "InventaryControl"
 ```
 
 "Genera tests en Jest + React Testing Library que iteren este archivo YAML y verifiquen que cada ruta monta el componente correcto."
