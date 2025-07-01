@@ -1,8 +1,8 @@
 ---
 section_id: "FILES-FOLDERS-01"
 title: "Estructura de Archivos y Carpetas"
-version: "1.0"
-date: "2025-07-01"
+version: "1.1"
+date: "2025-07-02"
 related_sections:
   - "root-and-global-configuration.md"
   - "entrypoint-and-router.md"
@@ -18,35 +18,25 @@ agents:
 # Tabla JSON embebida
 ```json
 [
-  {
-    "path": "Dockerfile",
-    "type": "file",
-    "purpose": "Construir imagen Node 18 para desarrollo",
-    "notes": ["npm run bootstrap:migrate", "puerto 8080"]
-  },
-  {
-    "path": "index.html",
-    "type": "file",
-    "purpose": "Documento principal donde Vite inyecta scripts",
-    "notes": ["Google Fonts", "Google Analytics", "#root"]
-  },
-  {
-    "path": "public/",
-    "type": "folder",
-    "purpose": "Archivos estáticos copiados a dist/",
-    "notes": ["fonts/", "img/"]
-  },
-  {
-    "path": "src/",
-    "type": "folder",
-    "purpose": "Código fuente de la SPA",
-    "notes": ["components/", "pages/", "services/"]
-  }
-  // …otras entradas
+  { "path": "AGENTS.md", "type": "file", "purpose": "Guía de los agentes", "notes": [] },
+  { "path": "Dockerfile", "type": "file", "purpose": "Construir imagen Node 18 para desarrollo", "notes": ["npm run bootstrap:migrate", "puerto 8080"] },
+  { "path": "README.md", "type": "file", "purpose": "Documentación introductoria", "notes": [] },
+  { "path": "docs/", "type": "folder", "purpose": "Documentación del proyecto", "notes": ["tests/"] },
+  { "path": "index.html", "type": "file", "purpose": "Documento principal donde Vite inyecta scripts", "notes": ["Google Fonts", "Google Analytics", "#root"] },
+  { "path": "package-lock.json", "type": "file", "purpose": "Versiones exactas de dependencias", "notes": [] },
+  { "path": "package.json", "type": "file", "purpose": "Scripts y dependencias de la aplicación", "notes": ["npm run dev", "npm run build"] },
+  { "path": "postcss.config.js", "type": "file", "purpose": "Configuración de PostCSS", "notes": [] },
+  { "path": "public/", "type": "folder", "purpose": "Archivos estáticos copiados a dist/", "notes": ["fonts/", "img/"] },
+  { "path": "scripts/", "type": "folder", "purpose": "Utilidades para el preprocesamiento de Sass", "notes": ["sassLogger.ts", "sassSilencer.js"] },
+  { "path": "src/", "type": "folder", "purpose": "Código fuente de la SPA", "notes": ["components/", "pages/"] },
+  { "path": "tsconfig.json", "type": "file", "purpose": "Configuración de TypeScript", "notes": [] },
+  { "path": "tsconfig.node.json", "type": "file", "purpose": "TS para herramientas Node", "notes": [] },
+  { "path": "vite.config.ts", "type": "file", "purpose": "Configuración de Vite", "notes": ["puerto 8080"] }
 ]
 ```
 
 Este JSON define la estructura de alto nivel del proyecto. El Code Agent usará los campos `path` y `type` para validar que los ficheros y carpetas existen, y podrá generar un scaffold inicial si falta alguno.
+La verificación automática se orquesta desde `docs/tests/structure-check.yml`, que ejecuta un script generado por el Code Agent.
 
 Toda modificación en la estructura debe reflejarse aquí y en `docs/summary-index.json` para mantener la documentación alineada con el repositorio.
 
@@ -216,4 +206,6 @@ entries:
    - Añadir nuevas entradas para archivos/carpetas detectados.  
    - Eliminar o marcar como obsoletas las entradas inexistentes.  
    - Mantener notas y metadata (purpose, notes) en la medida de lo posible, y solicitar intervención manual si no puede deducirse automáticamente."
+
+Revisa la tabla JSON de `files-and-folders.md` y genera un script de CI (`check-structure.sh`) que valide que todas las rutas existen, devolviendo error si falta algún archivo o carpeta.
 
