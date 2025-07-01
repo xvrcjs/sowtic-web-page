@@ -190,13 +190,30 @@ Referencia a pruebas de estructura:
 ```yaml
 script: "check-structure.sh"
 entries:
+  - "AGENTS.md"
   - "Dockerfile"
+  - "README.md"
+  - "docs/"
   - "index.html"
+  - "package-lock.json"
+  - "package.json"
+  - "postcss.config.js"
   - "public/"
+  - "scripts/"
   - "src/"
-  # …otras entradas
+  - tsconfig.json
+  - tsconfig.node.json
+  - vite.config.ts
 ```
 
 [Code Agent]
-"Revisa la tabla JSON de files-and-folders.md y genera un script de CI (check-structure.sh) que valide que todas las rutas existen, devolviendo error si falta algún archivo o carpeta."
+" 1. **Leer** la **Tabla JSON** embebida en `docs/files-and-folders.md` y genera un script de CI (check-structure.sh) que valide que todas las rutas existen, devolviendo error si falta algún archivo o carpeta.
+2. **Recorrer** la estructura de ficheros y carpetas del repositorio (desde la raíz) para obtener el estado real de `docs/`,`scripts/`,`Dockerfile`, `index.html`, `public/`, `src/`, `package.json`, `tsconfig.json`, `vite.config.ts`, etc.  
+3. **Comparar** ambas fuentes de verdad:  
+   - Identificar entradas del JSON que **no existen** en disco.  
+   - Detectar archivos o carpetas en el proyecto **no reflejados** en el JSON.  
+4. Si hay discrepancias, **actualizar** automáticamente el bloque JSON de `docs/files-and-folders.md` para que coincida con la estructura real:  
+   - Añadir nuevas entradas para archivos/carpetas detectados.  
+   - Eliminar o marcar como obsoletas las entradas inexistentes.  
+   - Mantener notas y metadata (purpose, notes) en la medida de lo posible, y solicitar intervención manual si no puede deducirse automáticamente."
 
