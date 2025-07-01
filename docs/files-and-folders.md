@@ -201,9 +201,9 @@ entries:
   - "public/"
   - "scripts/"
   - "src/"
-  - tsconfig.json
-  - tsconfig.node.json
-  - vite.config.ts
+  - "tsconfig.json"
+  - "tsconfig.node.json"
+  - "vite.config.ts"
 ```
 
 [Code Agent]
