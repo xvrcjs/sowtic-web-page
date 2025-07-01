@@ -78,30 +78,3 @@ Lista machine-readable de recursos
   { "path": "public/img/warrning.png", "type": "image", "uses": ["#service-images"] }
 ]
 ```
-
-## Criterios de Aceptación
-1. Cada archivo del JSON existe físicamente bajo `public/`.
-2. Hay al menos un formato WOFF2 por familia de fuentes y está referenciado en `src/index.scss`.
-3. Ningún nombre de archivo contiene espacios o caracteres especiales.
-4. Las imágenes no usadas (según JSON) deben moverse a `public/unused/`.
-5. Los assets pesados (>100 KB) están comprimidos o minificados previamente.
-
-[Code Agent]
-"Genera un script Node.js scripts/verify-public.js que:
-
-Valide la existencia de cada path del JSON.
-
-Comprima automáticamente PNG/JPG >100 KB usando Sharp.
-
-Convierta TTF a WOFF2 y actualice src/index.scss con las nuevas rutas."
-
-[Test Agent]
-"Usa Puppeteer o Playwright para cargar index.html y verificar que:
-
-El <link rel=\"icon\"> carga vite.svg.
-
-Todas las fuentes se descargan sin errores.
-
-Las imágenes referenciadas en el DOM existen y su tamaño es <150 KB."
-
-Consulta [src-assets.md](src-assets.md#vite-icon), [src-assets.md](src-assets.md#font-face-definitions) y [src-assets.md](src-assets.md#service-images) para más contexto.
