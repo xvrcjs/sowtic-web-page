@@ -48,7 +48,6 @@ flowchart TD
   Outlet --> HomePage
   Outlet --> RemoteAssistantPage
   Outlet --> SmartRutinesPage
-  // …otras páginas
 ```
 
 # Layouts en `src/pages/layouts/`
