@@ -1,7 +1,7 @@
 ---
 section_id: "COMP-SELECT-02"
 title: "Mapeo Componentes → Selectores CSS"
-version: "1.0"
+version: "1.1"
 date: "2025-06-30"
 related_sections:
   - "ui-selectors.md"
@@ -60,8 +60,3 @@ Este mapeo relaciona cada componente React con los selectores CSS que inserta en
 
 *Usa este mapeo para generar un test E2E en Cypress que verifique que cada componente renderiza su selector correspondiente en el DOM.*
 
-## Criterios de Aceptación
-
-1. Para cada entrada JSON existe un test E2E que usa el selector para localizar el componente.
-2. Los tests se encuentran en `tests/e2e/selectors.spec.ts`.
-3. Cualquier cambio en componentes o selectores actualiza este archivo y hará fallar el CI si no coincide.
