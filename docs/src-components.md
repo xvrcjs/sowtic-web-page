@@ -22,7 +22,7 @@ agents:
     "selectors": [".swiper-wrapper", ".swiper-slide"],
     "props": ["dataCollapse?: CardInterface[]"],
     "hooks": ["useState<boolean[]>", "useState<number>"],
-    "layouts": ["Home"],
+    "layouts": ["RemoteAssistant", "SmartRutines", "InventaryControl"],
     "styles": "src/styles/components/_carusel__collapse.scss",
     "notes": ["Breakpoints de Swiper", "responsive"]
   },
@@ -32,11 +32,40 @@ agents:
     "selectors": [".software__services"],
     "props": ["image", "title", "text", "buttonText?", "buttonUrl?", "buttonIcon?", "imageRight?"],
     "hooks": [],
-    "layouts": ["Home", "RemoteAssistant"],
+    "layouts": ["Home", "RemoteAssistant", "SmartRutines", "ImageComputing", "InventaryControl"],
     "styles": "src/styles/components/_content__stripe.scss",
     "notes": ["animaciones con react-awesome-reveal"]
+  },
+  {
+    "name": "Footer",
+    "path": "src/components/Footer.tsx",
+    "selectors": ["footer"],
+    "props": [],
+    "hooks": [],
+    "layouts": ["Layout"],
+    "styles": "src/styles/components/_footer.scss",
+    "notes": ["incluye ButtonToTop", "responsive"]
+  },
+  {
+    "name": "Header",
+    "path": "src/components/Header.tsx",
+    "selectors": ["nav.header.navbar"],
+    "props": [],
+    "hooks": ["useState<boolean>"],
+    "layouts": ["Layout"],
+    "styles": "src/styles/components/_header.scss",
+    "notes": ["responsive nav", "toggle en mobile"]
+  },
+  {
+    "name": "MainBanner",
+    "path": "src/components/MainBanner.tsx",
+    "selectors": [".main__slider"],
+    "props": ["buttonBack?", "children"],
+    "hooks": [],
+    "layouts": ["Home", "RemoteAssistant", "SmartRutines", "ImageComputing", "InventaryControl"],
+    "styles": "src/styles/components/_main__banner.scss",
+    "notes": ["animaciones con react-awesome-reveal"]
   }
-  // …otros componentes
 ]
 ```
 
@@ -48,24 +77,6 @@ graph LR
   Layout --> Footer
   Layout --> MainBanner
 ```
-
-## Criterios de Aceptación
-1. Todos los componentes definidos en el JSON existen en disco y exportan las props listadas.
-2. Los ficheros SCSS referenciados en `styles` existen y contienen las clases correctas.
-3. El Test Agent puede generar tests de renderizado para cada componente usando React Testing Library.
-4. El Doc Agent puede enlazar automáticamente a `components-selectors-mapping.md` y `src-components-shared.md` según los selectores listados.
-
-[Code Agent]
-
-"Usa el JSON anterior para generar las interfaces TypeScript completas de cada componente, y crear un archivo src/components/index.ts que exporte automáticamente todos los componentes listados."
-
-[Test Agent]
-
-"Genera un test por componente en __tests__/components/ComponentName.spec.tsx que verifique el renderizado y su snapshot."
-
-[Doc Agent]
-
-"Actualiza components-selectors-mapping.md para incluir estos componentes y sus selectores, siguiendo el formato JSON y los anclajes correspondientes."
 
 # Componentes principales en `src/components/`
 
