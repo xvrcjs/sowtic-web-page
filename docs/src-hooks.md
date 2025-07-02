@@ -22,7 +22,7 @@ agents:
     "dependencies": ["react-ga", "react-router-dom"],
     "triggers": ["useEffect", "useLocation"],
     "services": ["Google Analytics (GA4)"],
-    "notes": ["Env\u00eda pageview y evento config gtag"]
+    "notes": ["Envía pageview y evento config gtag"]
   }
 ]
 
@@ -36,9 +36,9 @@ graph LR
 [Code Agent]
 "Lee el JSON anterior y refactoriza usePageTracking.ts para:
 
-Extraer la l\u00f3gica de inicializaci\u00f3n en un hook useGAInit().
+Extraer la lógica de inicialización en un hook useGAInit().
 
-A\u00f1adir manejo de errores si ReactGA.initialize falla.
+Añadir manejo de errores si ReactGA.initialize falla.
 
 Mantener los side-effects bajo useEffect con dependencias [pathname, search]."
 
@@ -51,9 +51,9 @@ Simule cambios de ruta con MemoryRouter.
 
 Verifique que ReactGA.pageview y window.gtag se llamen correctamente."
 
-## Criterios de Aceptaci\u00f3n
+## Criterios de Aceptación
 1. El JSON refleja todos los hooks en `src/hooks/`.
 2. `usePageTracking.ts` existe y exporta el hook con el nombre correcto.
-3. El Code Agent puede generar el refactor solicitado y pasa la compilaci\u00f3n de TypeScript.
+3. El Code Agent puede generar el refactor solicitado y pasa la compilación de TypeScript.
 4. El Test Agent produce un test que cubre ambos flujos de GA y gtag.
-5. El Doc Agent actualiza la documentaci\u00f3n del hook en este archivo tras cualquier cambio.
+5. El Doc Agent actualiza la documentación del hook en este archivo tras cualquier cambio.

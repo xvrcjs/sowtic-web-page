@@ -1,8 +1,8 @@
 ---
 section_id: "STYLEGUIDE-01"
 title: "Guía de Estilo"
-version: "1.1"
-date: "2025-06-30"
+version: "1.2"
+date: "2025-07-01"
 related_sections:
   - "src-styles.md"
   - "files-and-folders.md"
@@ -117,4 +117,8 @@ El proyecto no define alias de Vite; todas las rutas se importan de forma relati
     }
   ```
 - Para ejecutar el linting se usa `npm run lint` según `package.json`.
+
+## Validación de Codificación Unicode
+
+Todas las secuencias de escape Unicode (`\u00XX`) deben reemplazarse por su carácter UTF-8 correspondiente. Cualquier archivo Markdown que contenga `\u00XX` debe fallar la validación de estilo.
 
