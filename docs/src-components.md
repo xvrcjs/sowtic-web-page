@@ -14,7 +14,7 @@ agents:
   - Test Agent
   - Doc Agent
 ---
-
+```json
 [
   {
     "name": "CarouselCollapse",
@@ -38,6 +38,7 @@ agents:
   }
   // …otros componentes
 ]
+```
 
 ```mermaid
 graph LR
