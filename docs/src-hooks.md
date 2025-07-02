@@ -14,7 +14,7 @@ agents:
   - Test Agent
   - Doc Agent
 ---
-
+```json
 [
   {
     "name": "usePageTracking",
@@ -25,7 +25,7 @@ agents:
     "notes": ["Envía pageview y evento config gtag"]
   }
 ]
-
+```
 ```mermaid
 graph LR
   App --> usePageTracking
