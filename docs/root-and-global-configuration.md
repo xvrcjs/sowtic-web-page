@@ -34,31 +34,31 @@ agents:
   {
     "path": "package.json",
     "type": "file",
-    "purpose": "Definici\u00f3n de scripts, dependencias y metadatos del proyecto",
+    "purpose": "Definición de scripts, dependencias y metadatos del proyecto",
     "sections": ["scripts", "dependencies", "devDependencies"]
   },
   {
     "path": "tsconfig.json",
     "type": "file",
-    "purpose": "Opciones de compilaci\u00f3n de TypeScript",
+    "purpose": "Opciones de compilación de TypeScript",
     "sections": ["compilerOptions", "include", "exclude"]
   },
   {
     "path": "vite.config.ts",
     "type": "file",
-    "purpose": "Configuraci\u00f3n de Vite: plugins, servidor y CSS preprocesado",
+    "purpose": "Configuración de Vite: plugins, servidor y CSS preprocesado",
     "sections": ["plugins", "css", "server", "logLevel"]
   }
 ]
 ```
 
-Este JSON describe de forma program\u00e1tica los archivos cr\u00edticos en la ra\u00edz del proyecto, sus roles y las secciones clave que configuran el entorno de desarrollo, build y producci\u00f3n.
+Este JSON describe de forma programática los archivos críticos en la raíz del proyecto, sus roles y las secciones clave que configuran el entorno de desarrollo, build y producción.
 
-Enlaces directos a cada secci\u00f3n: [Dockerfile](#dockerfile), [index.html](#indexhtml), [package.json](#packagejson), [tsconfig.json](#tsconfigjson) y [vite.config.ts](#viteconfigts).
+Enlaces directos a cada sección: [Dockerfile](#dockerfile), [index.html](#indexhtml), [package.json](#packagejson), [tsconfig.json](#tsconfigjson) y [vite.config.ts](#viteconfigts).
 
-# Configuraci\u00f3n Ra\u00edz y Global
+# Configuración Raíz y Global
 
-Este documento detalla los archivos principales en la ra\u00edz de **sowtic-web-page**. Se explica su prop\u00f3sito, configuraci\u00f3n y c\u00f3mo influyen en las tareas de desarrollo, build y producci\u00f3n.
+Este documento detalla los archivos principales en la raíz de **sowtic-web-page**. Se explica su propósito, configuración y cómo influyen en las tareas de desarrollo, build y producción.
 
 ## Dockerfile
 - **Ruta relativa**: `Dockerfile`
