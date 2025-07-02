@@ -50,7 +50,6 @@ graph LR
   Header --> nav.header.navbar
   Navbar.Toggle --> #toggle-menu
   MainBanner --> .main__slider
-  // …otras relaciones
 ```
 
 # Documentación de selectores UI
