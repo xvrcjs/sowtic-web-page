@@ -15,7 +15,7 @@ agents:
   - Test Agent
   - Doc Agent
 ---
-
+```json
 [
   {
     "file": "dataInterface.ts",
@@ -97,7 +97,7 @@ agents:
     ]
   }
 ]
-
+```
 ```mermaid
 erDiagram
   DataInterface ||--o{ BannerInterface : extends
