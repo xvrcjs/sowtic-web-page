@@ -1,9 +1,8 @@
-
 ---
 section_id: "SRC-ASSETS-05"
 title: "Recursos en src/assets"
-version: "1.0"
-date: "2025-07-01"
+version: "1.1"
+date: "2025-07-02"
 related_sections:
   - "public.md"
   - "files-and-folders.md"
@@ -22,20 +21,12 @@ agents:
 ```json
 [
   {
-    "path": "src/assets/react.svg",
+    "path": "react.svg",
     "type": "svg",
     "imported_in": ["src/App.tsx"],
     "inline_threshold_kb": 10,
     "notes": ["Mantener optimizado", "Agregar loading=\"lazy\" si no es above-the-fold"]
-  },
-  {
-    "path": "src/assets/logo.png",
-    "type": "image",
-    "imported_in": ["src/components/shared/Header.tsx"],
-    "inline_threshold_kb": 5,
-    "notes": ["Usar WebP en producción"]
   }
-  // …otros recursos
 ]
 ```
 
