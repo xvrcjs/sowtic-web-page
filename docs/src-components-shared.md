@@ -15,7 +15,7 @@ agents:
   - Test Agent
   - Doc Agent
 ---
-
+``` json
 [
   {
     "name": "ButtonToTop",
@@ -54,6 +54,7 @@ agents:
     "examples": ["<ScrollToTop><AppRoutes /></ScrollToTop>"]
   }
 ]
+```
 
 ```mermaid
 graph LR
