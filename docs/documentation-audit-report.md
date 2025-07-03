@@ -1,8 +1,8 @@
 ---
 section_id: "DOC-AUDIT-01"
 title: "Estado de la Documentación"
-version: "1.1"
-date: "2025-07-03"
+version: "1.2"
+date: "2025-07-05"
 related_sections:
   - "summary-index.json"
   - "files-and-folders.md"
@@ -43,18 +43,16 @@ Este reporte contrasta los archivos presentes en el repositorio con la cobertura
 | Asset `src/assets/react.svg` | `src-assets.md` |
 | Recursos `public/` | `public.md` |
 | Configuración raíz (Dockerfile, Vite, tsconfig, etc.) | `root-and-global-configuration.md`, `files-and-folders.md` |
-| Utilidades y scripts (`scripts/*`, `src/utils/ga.ts`) | `files-and-folders.md` |
+| Utilidades (`src/utils/ga.ts`) | `src-utils-ga.md`, `files-and-folders.md` |
 
 ## 2. Grietas o faltantes
 
-- El JSON de `src-components-shared.md` lista **ScrollToHashElement** pero el archivo real es `ScrollToHasElement.ts`【F:docs/src-components-shared.md†L42-L46】【F:src/components/shared/ScrollToHasElement.ts†L1-L5】.
-- Algunos documentos no incluyen el campo `use_all_sections` en el front matter, a diferencia de la plantilla de `AGENTS.md`.
-- `public.md` solo contiene el listado JSON sin descripción adicional de buenas prácticas.
-- No existe documentación específica para `src/utils/ga.ts` fuera de una mención breve en `files-and-folders.md`.
+- El JSON de `src-components-shared.md` y `src-pages-layouts.md` utilizan **ScrollToHashElement** pero el archivo real se llama `ScrollToHasElement.ts`【F:docs/src-components-shared.md†L42-L46】【F:docs/src-pages-layouts.md†L25-L32】.
+- `docs/summary-index.json` no incluye `STYLEGUIDE.md` ni este reporte de auditoría.
 
 ## 3. Consistencia de metadatos
 
-Todos los documentos poseen `section_id`, `title`, `version`, `date`, `related_sections`, `enforce` y `agents`. Sin embargo, solo algunos utilizan `use_all_sections`. Las fechas están alineadas entre 2025‑07‑01 y 2025‑07‑03.
+Todos los documentos poseen `section_id`, `title`, `version`, `date`, `related_sections`, `enforce`, `agents` y el campo `use_all_sections`. Las fechas están comprendidas entre 2025‑07‑01 y 2025‑07‑05.
 
 ## 4. Concordancia JSON ↔ Código
 
@@ -65,13 +63,12 @@ Todos los documentos poseen `section_id`, `title`, `version`, `date`, `related_s
 
 ## 5. Estado de índices y mapeos
 
-`docs/summary-index.json` referencia los 16 documentos principales del proyecto y sus títulos coinciden con el front matter【F:docs/summary-index.json†L1-L20】.
+`docs/summary-index.json` referencia los 17 documentos principales del proyecto y sus títulos coinciden con el front matter【F:docs/summary-index.json†L1-L20】.
 `components-selectors-mapping.md` enlaza correctamente a secciones de `ui-selectors.md` y `src-components.md`.
 
 ## 6. Plan de acción
 
-1. Corregir en `src-components-shared.md` la referencia a `ScrollToHasElement.ts`.
-2. Añadir `use_all_sections` en los documentos que carecen de este campo.
-3. Extender `public.md` con una explicación de buenas prácticas de uso de la carpeta `public/`.
-4. Crear o ampliar documentación sobre `src/utils/ga.ts` (funciones de Analytics).
-5. Mantener sincronizados `summary-index.json` y `files-and-folders.md` al modificar documentos.
+1. Corregir en `src-components-shared.md` y `src-pages-layouts.md` la referencia a `ScrollToHashElement`.
+2. Incluir `STYLEGUIDE.md` y `documentation-audit-report.md` en `summary-index.json`.
+3. Verificar que las rutas listadas en los bloques JSON coincidan con los archivos reales tras cada refactor.
+4. Mantener sincronizados `summary-index.json` y `files-and-folders.md` ante cualquier cambio de estructura.
