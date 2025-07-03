@@ -29,7 +29,7 @@ Bloque JSON machine-readable
   {
     "selector": "#toggle-menu",
     "component": "Navbar.Toggle",
-    "file": "src/components/shared/Header.tsx",
+    "file": "src/components/Header.tsx",
     "scss": null,
     "notes": ["removeFocus tras 1s"]
   },

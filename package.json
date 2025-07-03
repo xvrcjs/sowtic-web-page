@@ -9,7 +9,8 @@
     "build": "tsc && vite build --base=./",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "bootstrap:migrate": "mkdir -p src/styles/vendor && rimraf src/styles/vendor/bootstrap && cp -R node_modules/bootstrap/scss src/styles/vendor/bootstrap && npx sass-migrator module \"src/styles/vendor/bootstrap/**/*.scss\" && npx sass-migrator color \"src/styles/vendor/bootstrap/**/*.scss\""
+    "bootstrap:migrate": "mkdir -p src/styles/vendor && rimraf src/styles/vendor/bootstrap && cp -R node_modules/bootstrap/scss src/styles/vendor/bootstrap && npx sass-migrator module \"src/styles/vendor/bootstrap/**/*.scss\" && npx sass-migrator color \"src/styles/vendor/bootstrap/**/*.scss\"",
+    "check-structure": "bash scripts/check-structure.sh"
   },
   "dependencies": {
     "@emailjs/browser": "^3.12.1",

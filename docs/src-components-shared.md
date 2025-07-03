@@ -40,7 +40,7 @@ agents:
   },
   {
     "name": "ScrollToHashElement",
-    "path": "src/components/shared/ScrollToHasElement.ts",
+    "path": "src/components/shared/ScrollToHashElement.ts",
     "dependencies": ["react-router-dom"],
     "hooks": ["useLocation", "useMemo", "useEffect"],
     "examples": ["<ScrollToHashElement />"]

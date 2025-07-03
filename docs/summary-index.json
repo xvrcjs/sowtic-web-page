@@ -1,7 +1,7 @@
 [
   {
     "id": "SUMMARY-01",
-    "title": "Mapa de Componentes y Selectores",
+    "title": "Mapeo Componentes → Selectores CSS",
     "file": "components-selectors-mapping.md"
   },
   {
@@ -11,7 +11,7 @@
   },
   {
     "id": "SUMMARY-03",
-    "title": "Archivos y Carpetas",
+    "title": "Estructura de Archivos y Carpetas",
     "file": "files-and-folders.md"
   },
   {
@@ -31,32 +31,32 @@
   },
   {
     "id": "SUMMARY-07",
-    "title": "Componentes compartidos en src/components/shared",
+    "title": "Componentes Compartidos",
     "file": "src-components-shared.md"
   },
   {
     "id": "SUMMARY-08",
-    "title": "Componentes principales en src/components",
+    "title": "Componentes Principales",
     "file": "src-components.md"
   },
   {
     "id": "SUMMARY-09",
-    "title": "Hooks personalizados en src/hooks",
+    "title": "Hooks Personalizados",
     "file": "src-hooks.md"
   },
   {
     "id": "SUMMARY-10",
-    "title": "Layouts en src/pages/layouts",
+    "title": "Layouts de Páginas",
     "file": "src-pages-layouts.md"
   },
   {
     "id": "SUMMARY-11",
-    "title": "Páginas en src/pages",
+    "title": "Páginas de la Aplicación",
     "file": "src-pages.md"
   },
   {
     "id": "SUMMARY-12",
-    "title": "Datos simulados en src/services/databaseInMemory",
+    "title": "Servicios InMemory de Datos",
     "file": "src-services-databaseInMemory.md"
   },
   {
@@ -71,7 +71,7 @@
   },
   {
     "id": "SUMMARY-15",
-    "title": "Estilos en src/styles",
+    "title": "Estilos SCSS",
     "file": "src-styles.md"
   },
   {
