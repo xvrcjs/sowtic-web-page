@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
 import { Header, Footer, ScrollToTop } from "../../components";
-import ScrollToHashElement from "../../components/shared/ScrollToHasElement";
+import ScrollToHashElement from "../../components/shared/ScrollToHashElement";
 
 /**
  * Layout de la aplicación con cabecera y pie.
