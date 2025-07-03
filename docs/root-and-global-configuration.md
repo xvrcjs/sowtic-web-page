@@ -14,6 +14,7 @@ agents:
   - Code Agent
   - Doc Agent
   - Test Agent
+use_all_sections: false
 ---
 
 # Tabla JSON embebida

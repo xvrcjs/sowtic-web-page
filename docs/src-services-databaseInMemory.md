@@ -14,6 +14,7 @@ agents:
   - Code Agent
   - Test Agent
   - Doc Agent
+use_all_sections: false
 ---
 
 ```json

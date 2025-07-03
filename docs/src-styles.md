@@ -14,6 +14,7 @@ agents:
   - Code Agent
   - Design Agent
   - Test Agent
+use_all_sections: false
 ---
 
 Bloque JSON machine-readable
