@@ -1,84 +1,81 @@
-# Documentation Audit Report
+---
+section_id: "DOC-AUDIT-01"
+title: "Estado de la Documentación"
+version: "1.0"
+date: "2025-07-02"
+related_sections:
+  - "summary-index.json"
+  - "files-and-folders.md"
+use_all_sections: false
+enforce:
+  - styleguide: "STYLEGUIDE.md"
+  - summary_index: "summary-index.json"
+agents:
+  - Doc Agent
+  - Test Agent
+tech_stack:
+  - React 18
+  - TypeScript
+  - Vite
+  - Sass
+  - Bootstrap
+---
 
-## Cobertura actual
+# Informe de Auditoría de Documentación
 
-La siguiente tabla mapea los elementos del proyecto con los documentos donde se describen:
+Este reporte contrasta los archivos presentes en el repositorio con la cobertura documental dentro de `docs/`.
+
+## 1. Cobertura actual
 
 | Elemento | Documento(s) |
 | --- | --- |
-| `src/components/CarouselCollapse.tsx` | `src-components.md`, `components-selectors-mapping.md` |
-| `src/components/ContentStripe.tsx` | `src-components.md`, `components-selectors-mapping.md` |
-| `src/components/Footer.tsx` | `src-components.md`, `components-selectors-mapping.md` |
-| `src/components/Header.tsx` | `src-components.md`, `components-selectors-mapping.md` |
-| `src/components/MainBanner.tsx` | `src-components.md`, `components-selectors-mapping.md` |
-| `src/components/index.ts` | `src-components.md` |
-| `src/components/shared/*` | `src-components-shared.md` |
-| `src/hooks/usePageTracking.ts` | `src-hooks.md` |
-| `src/pages/*` | `src-pages.md` |
-| `src/pages/layouts/Layout.tsx` | `src-pages-layouts.md` |
-| `src/services/*Service.ts` | `src-services.md` |
-| `src/services/databaseInMemory/*` | `src-services-databaseInMemory.md` |
-| `src/services/interface/*` | `src-services-interface.md` |
-| `src/styles/**/*` | `src-styles.md`, `STYLEGUIDE.md` |
-| `src/assets/react.svg` | `src-assets.md` |
-| `public/**/*` | `public.md` |
-| Configuración raíz (`Dockerfile`, `vite.config.ts`, etc.) | `root-and-global-configuration.md`, `files-and-folders.md` |
-| Scripts (`scripts/*`) | `files-and-folders.md` |
-| Utilidades (`src/utils/ga.ts`) | `files-and-folders.md` |
+| `src/App.tsx`, `src/App.css` | `files-and-folders.md` |
+| `src/main.tsx`, `src/router.tsx`, `src/index.scss` | `entrypoint-and-router.md` |
+| Componentes en `src/components/` | `src-components.md`, `components-selectors-mapping.md`, `ui-selectors.md` |
+| Componentes compartidos en `src/components/shared/` | `src-components-shared.md` |
+| Hook `usePageTracking` | `src-hooks.md` |
+| Páginas en `src/pages/` | `src-pages.md` |
+| Layout `Layout.tsx` | `src-pages-layouts.md` |
+| Servicios (`bannerService.ts`, `cardService.ts`, `stripeService.ts`) | `src-services.md` |
+| Datos en `src/services/databaseInMemory/` | `src-services-databaseInMemory.md` |
+| Interfaces en `src/services/interface/` | `src-services-interface.md` |
+| Estilos SCSS y parciales | `src-styles.md`, `STYLEGUIDE.md` |
+| Asset `src/assets/react.svg` | `src-assets.md` |
+| Recursos `public/` | `public.md` |
+| Configuración raíz (Dockerfile, Vite, tsconfig, etc.) | `root-and-global-configuration.md`, `files-and-folders.md` |
+| Utilidades y scripts (`scripts/*`, `src/utils/ga.ts`) | `files-and-folders.md` |
 
+## 2. Grietas o faltantes
 
-## Grietas o faltantes
+- `src/App.tsx` carece de una sección JSON dedicada; solo se menciona brevemente en `files-and-folders.md`.
+- En `src-components-shared.md` el bloque JSON usa el nombre **ScrollToHashElement** mientras que el archivo se llama `ScrollToHasElement.ts`.
+- `src-styles.md` referencia parciales `_card__transparent.scss` y `_carousel__collapse.scss`, mientras que en el código existen `_card__tansparent.scss` y `_carusel__collapse.scss`【F:docs/src-styles.md†L52-L61】.
+- `ui-selectors.md` antes refería `#toggle-menu` a `src/components/shared/Header.tsx`; ya se actualizó a `src/components/Header.tsx`.
+- `docs/tests/structure-check.yml` espera un script `check-structure.sh` que no está en el repositorio.
 
-- El bloque JSON de `src-components.md` solo lista **CarouselCollapse** y **ContentStripe**; faltan `Footer`, `Header` y `MainBanner` aunque se describen más abajo.
-- En `src-styles.md` los nombres de archivos no coinciden con el repositorio:
-  - Se documenta `_card__transparent.scss`, pero el archivo real es `_card__tansparent.scss`.
-  - Se menciona `_carousel__collapse.scss`, mientras que en `src/styles` existe `_carusel__collapse.scss`.
-- En `src-components-shared.md` el componente se nombra `ScrollToHashElement` aunque el fichero es `ScrollToHasElement.ts`.
-- `docs/tests/structure-check.yml` hace referencia a un script `check-structure.sh` que no está presente en el proyecto.
-- El `summary-index.json` usa el título "Mapa de Componentes y Selectores" que no coincide exactamente con `title` en `components-selectors-mapping.md`.
-- No hay documentación JSON detallada para `App.tsx` ni para el propio `Router` más allá de las descripciones narrativas en otros documentos.
+## 3. Consistencia de metadatos
 
+Todos los documentos en `docs/` incluyen `section_id`, `title`, `version`, `date`, `related_sections`, `enforce` y `agents`. Las fechas oscilan entre `2025-06-30` y `2025-07-02`. Sin embargo, los títulos en `summary-index.json` no siempre coinciden con el `title` real del documento (ejemplo: "Mapeo Componentes → Selectores CSS" vs. "Mapa de Componentes y Selectores").
 
-## Consistencia de metadatos
+## 4. Concordancia JSON ↔ Código
 
-Se verificaron los bloques *Front Matter* de los 17 documentos Markdown. Todos contienen `section_id`, `title`, `version`, `date`, `related_sections`, `enforce` y `agents`. Las fechas están normalizadas al rango `2025-06-30`/`2025-07-01` y las versiones se mantienen en `1.0` (o `1.1` para la guía de estilo). 
+- El bloque JSON de `src-components.md` especifica la hoja de estilos `src/styles/components/_carusel__collapse.scss`, que concuerda con el archivo existente【F:docs/src-components.md†L20-L27】.
+- En `src-styles.md` los nombres de parciales no reflejan la ortografía real del directorio (`_card__tansparent.scss`, `_carusel__collapse.scss`)【F:docs/src-styles.md†L52-L61】【F:src/styles/components/_card__tansparent.scss†L1-L10】.
+- `src-components-shared.md` menciona `ScrollToHashElement`, aunque el código exporta `ScrollToHasElement`【F:docs/src-components-shared.md†L42-L46】【F:src/components/shared/ScrollToHasElement.ts†L1-L5】.
+- En `ui-selectors.md` se corrigió la ruta del selector `#toggle-menu` para que apunte a `src/components/Header.tsx`.
 
-No se encontraron campos ausentes, aunque solo `STYLEGUIDE.md` y `entrypoint-and-router.md` utilizan `use_all_sections`. Esta opción no es obligatoria según la guía.
+## 5. Estado de índices y mapeos
 
+- `summary-index.json` contiene 16 entradas y enlaza a cada archivo de `docs/`. Algunos títulos difieren de los declarados en el Front Matter (por ejemplo, "Estilos en src/styles" vs. "Estilos SCSS").
+- `components-selectors-mapping.md` lista cinco componentes y coincide con los archivos reales.
+- `components-selectors-mapping.md` y `ui-selectors.md` usan anclas que existen en los documentos destino.
 
-## Concordancia JSON ↔ Código
+## 6. Plan de acción
 
-Se revisaron los bloques JSON presentes en la documentación:
-
-- `src-components.md` describe solo dos componentes en su JSON inicial. Los archivos indicados existen, pero el resto de componentes (Footer, Header, MainBanner) solo aparecen en la narrativa y no forman parte del bloque machine‑readable.
-- `src-components-shared.md` referencia `ScrollToHashElement`, pero el archivo real se llama `ScrollToHasElement.ts`.
-- `src-styles.md` declara `_card__transparent.scss` y `_carousel__collapse.scss`; en `src/styles/components/` existen respectivamente `_card__tansparent.scss` y `_carusel__collapse.scss`.
-- Los JSON de `src-services.md`, `src-services-interface.md`, `src-services-databaseInMemory.md` y `src-pages.md` coinciden con las rutas y métodos reales de los archivos TypeScript.
-
-
-## Estado de índices y mapeos
-
-- `summary-index.json` contiene 16 entradas y apunta correctamente a cada archivo dentro de `docs/`. Los nombres de archivo coinciden, aunque algunos títulos no replican exactamente el valor del campo `title` de cada documento (ejemplo: "Mapa de Componentes y Selectores" vs "Mapeo Componentes → Selectores CSS").
-- `components-selectors-mapping.md` enlaza a `ui-selectors.md` y `src-components.md`; el JSON refleja cinco componentes pero requiere actualizarse cuando se añadan o modifiquen archivos.
-- `ui-selectors.md` incluye un extenso listado de selectores con anclas válidas y ejemplos de código. Los anclajes referenciados desde otros documentos existen.
-- `docs/tests/structure-check.yml` está preparado para validar la estructura del repo pero el script mencionado no existe actualmente.
-
-
-## Plan de acción
-
-1. **Actualizar `src-components.md`**
-   - Incluir en el bloque JSON los componentes `Footer`, `Header` y `MainBanner` con sus rutas y selectores.
-   - Incrementar el campo `version` a `1.1` y actualizar la fecha.
-   - Sincronizar `components-selectors-mapping.md` con estas nuevas entradas.
-2. **Corregir nombres en `src-styles.md`**
-   - Ajustar las rutas de `_card__tansparent.scss` y `_carusel__collapse.scss`.
-   - Generar o actualizar el script de validación mencionado (`scripts/check-styles.js`).
-3. **Revisar `src-components-shared.md`**
-   - Cambiar `ScrollToHashElement` por `ScrollToHasElement` en el bloque JSON y en el diagrama.
-4. **Agregar script faltante**
-   - Implementar `check-structure.sh` conforme a lo indicado en `docs/tests/structure-check.yml` y enlazarlo desde `package.json`.
-5. **Homogeneizar títulos en `summary-index.json`**
-   - Alinear el campo `title` con el `title` real de cada documento para evitar confusión.
-6. **Extender la documentación de `Router` y `App`**
-   - Añadir entradas JSON en `entrypoint-and-router.md` o un nuevo documento que detalle `App.tsx` y `router.tsx`.
+1. **Crear sección JSON para `App.tsx`** en un nuevo documento o dentro de `entrypoint-and-router.md`.
+2. **Corregir nombres** en `src-components-shared.md` y `src-styles.md` para reflejar la ruta real de archivos (`ScrollToHasElement.ts`, `_card__tansparent.scss`, `_carusel__collapse.scss`).
+3. **Actualizar `ui-selectors.md`** cambiando la referencia de `src/components/shared/Header.tsx` a `src/components/Header.tsx`.
+4. **Homogeneizar títulos** en `summary-index.json` para que coincidan con el Front Matter de cada documento.
+5. **Implementar** el script `check-structure.sh` indicado en `docs/tests/structure-check.yml` y enlazarlo desde `package.json`.
+6. **Mantener este reporte** con Front Matter y actualizarlo periódicamente al agregar o mover archivos.
 

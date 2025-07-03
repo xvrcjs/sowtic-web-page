@@ -41,8 +41,8 @@ Bloque JSON machine-readable
       "components/header",
       "components/content__stripe",
       "components/main__banner",
-      "components/card__transparent",
-      "components/carousel__collapse",
+      "components/card__tansparent",
+      "components/carusel__collapse",
       "components/button__top"
     ],
     "defines": ["layout classes", "media queries"],
@@ -56,8 +56,8 @@ Bloque JSON machine-readable
       "_header.scss",
       "_content__stripe.scss",
       "_main__banner.scss",
-      "_card__transparent.scss",
-      "_carousel__collapse.scss",
+      "_card__tansparent.scss",
+      "_carusel__collapse.scss",
       "_button__top.scss"
     ],
     "notes": ["estilos específicos por componente"]
