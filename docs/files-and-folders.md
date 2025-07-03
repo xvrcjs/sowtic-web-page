@@ -39,6 +39,7 @@ Este JSON define la estructura de alto nivel del proyecto. El Code Agent usará 
 La verificación automática se orquesta desde `docs/tests/structure-check.yml`, que ejecuta un script generado por el Code Agent.
 
 Toda modificación en la estructura debe reflejarse aquí y en `docs/summary-index.json` para mantener la documentación alineada con el repositorio.
+Cuando se agregue, elimine o mueva un documento Markdown en `docs/`, recuerda también actualizar este listado, añadir su Front Matter y registrarlo en `docs/summary-index.json`.
 
 # Documentación detallada de archivos y carpetas
 

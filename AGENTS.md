@@ -52,6 +52,7 @@ Este archivo define los agentes que colaboran en el mantenimiento y ampliación 
 ## Directrices de sincronización
 Si se agrega, elimina o actualiza cualquier archivo o carpeta en el repositorio, se debe actualizar `docs/files-and-folders.md` inmediatamente siguiendo las reglas de `docs/STYLEGUIDE.md` y refrescar el índice en `docs/summary-index.json`.
 Al revisar o actualizar cualquier `docs/*.md`, se debe validar que no existan secuencias `\u00XX`. Si se encuentran, la tarea falla y se debe corregir el archivo.
+Si se añade, borra o mueve un documento Markdown dentro de `docs/`, deberá incluirse en `docs/summary-index.json`, llevar Front Matter YAML y registrarse en `docs/files-and-folders.md`.
 
 ## Plantilla de Front Matter YAML
 Se recomienda incluir el siguiente bloque al inicio de cada archivo `docs/*.md` para mantener uniformidad.

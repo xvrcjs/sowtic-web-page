@@ -16,6 +16,16 @@ agents:
   - Doc Agent
 use_all_sections: false
 ---
+## App
+```json
+{
+  "name": "App",
+  "path": "src/App.tsx",
+  "hooks": ["usePageTracking"],
+  "children": ["RouterProvider", "Routes"],
+  "notes": ["Hook de tracking de páginas", "Contexto de RouterProvider"]
+}
+```
 # Arranque y Enrutado
 
 Esquema JSON de rutas
