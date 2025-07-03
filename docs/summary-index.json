@@ -83,5 +83,15 @@
     "id": "SUMMARY-17",
     "title": "Utilidades de Google Analytics",
     "file": "src-utils-ga.md"
+  },
+  {
+    "id": "SUMMARY-18",
+    "title": "Guía de Estilo",
+    "file": "STYLEGUIDE.md"
+  },
+  {
+    "id": "SUMMARY-19",
+    "title": "Estado de la Documentación",
+    "file": "documentation-audit-report.md"
   }
 ]

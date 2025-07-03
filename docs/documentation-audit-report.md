@@ -47,8 +47,8 @@ Este reporte contrasta los archivos presentes en el repositorio con la cobertura
 
 ## 2. Grietas o faltantes
 
-- El JSON de `src-components-shared.md` y `src-pages-layouts.md` utilizan **ScrollToHashElement** pero el archivo real se llama `ScrollToHasElement.ts`【F:docs/src-components-shared.md†L42-L46】【F:docs/src-pages-layouts.md†L25-L32】.
-- `docs/summary-index.json` no incluye `STYLEGUIDE.md` ni este reporte de auditoría.
+- Se detectó que el componente estaba nombrado como `ScrollToHasElement.ts`. Ahora el archivo se renombró correctamente a `ScrollToHashElement.ts` y la documentación se actualizó en consecuencia.
+- `docs/summary-index.json` ya incorpora `STYLEGUIDE.md` y este reporte de auditoría.
 
 ## 3. Consistencia de metadatos
 
@@ -59,11 +59,11 @@ Todos los documentos poseen `section_id`, `title`, `version`, `date`, `related_s
 - `entrypoint-and-router.md` contiene un bloque JSON que documenta `App.tsx`【F:docs/entrypoint-and-router.md†L19-L27】.
 - El listado de parciales SCSS en `src-styles.md` coincide con los archivos reales【F:docs/src-styles.md†L56-L63】.
 - El mapeo de `public/` incluye rutas existentes en disco【F:docs/public.md†L21-L29】.
-- `src-components-shared.md` mantiene la ruta errónea para `ScrollToHashElement`【F:docs/src-components-shared.md†L42-L46】.
+- `src-components-shared.md` ya apunta al archivo correcto `ScrollToHashElement.ts`【F:docs/src-components-shared.md†L42-L46】.
 
 ## 5. Estado de índices y mapeos
 
-`docs/summary-index.json` referencia los 17 documentos principales del proyecto y sus títulos coinciden con el front matter【F:docs/summary-index.json†L1-L20】.
+`docs/summary-index.json` referencia los 19 documentos principales del proyecto y sus títulos coinciden con el front matter【F:docs/summary-index.json†L1-L20】.
 `components-selectors-mapping.md` enlaza correctamente a secciones de `ui-selectors.md` y `src-components.md`.
 
 ## 6. Plan de acción

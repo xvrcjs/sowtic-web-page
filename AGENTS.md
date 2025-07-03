@@ -54,6 +54,7 @@ Si se agrega, elimina o actualiza cualquier archivo o carpeta en el repositorio,
 Al revisar o actualizar cualquier `docs/*.md`, se debe validar que no existan secuencias `\u00XX`. Si se encuentran, la tarea falla y se debe corregir el archivo.
 Si se añade, borra o mueve un documento Markdown dentro de `docs/`, deberá incluirse en `docs/summary-index.json`, llevar Front Matter YAML y registrarse en `docs/files-and-folders.md`.
 Los agentes automatizarán esta indexación para que `summary-index.json` y `files-and-folders.md` reflejen cualquier alta o traslado.
+Cualquier PR que modifique la estructura de `docs/` o `src/` debe incluir en el mismo commit las actualizaciones a `docs/summary-index.json` y `docs/files-and-folders.md`.
 
 ## Plantilla de Front Matter YAML
 Se recomienda incluir el siguiente bloque al inicio de cada archivo `docs/*.md` para mantener uniformidad.
