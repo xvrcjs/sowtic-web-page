@@ -53,13 +53,13 @@ Bloque JSON machine-readable
     "dir": "src/styles/components",
     "role": "partials",
     "entries": [
-      "_footer.scss",
-      "_header.scss",
-      "_content__stripe.scss",
-      "_main__banner.scss",
-      "_card__tansparent.scss",
-      "_carusel__collapse.scss",
-      "_button__top.scss"
+      "src/styles/components/_footer.scss",
+      "src/styles/components/_header.scss",
+      "src/styles/components/_content__stripe.scss",
+      "src/styles/components/_main__banner.scss",
+      "src/styles/components/_card__tansparent.scss",
+      "src/styles/components/_carusel__collapse.scss",
+      "src/styles/components/_button__top.scss"
     ],
     "notes": ["estilos específicos por componente"]
   },
@@ -67,7 +67,7 @@ Bloque JSON machine-readable
     "dir": "src/styles/vendor/bootstrap",
     "role": "bootstrap_vendor",
     "generated": true,
-    "notes": ["no versionado, creado con bootstrap:migrate"]
+    "notes": ["se genera automáticamente con `npm run bootstrap:migrate`"]
   }
 ]
 ```

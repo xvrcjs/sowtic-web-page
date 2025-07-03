@@ -22,7 +22,7 @@ use_all_sections: false
 ```json
 [
   {
-    "path": "react.svg",
+    "path": "src/assets/react.svg",
     "type": "svg",
     "imported_in": ["src/App.tsx"],
     "inline_threshold_kb": 10,
