@@ -1,8 +1,8 @@
 ---
 section_id: "DOC-AUDIT-01"
 title: "Estado de la Documentación"
-version: "1.0"
-date: "2025-07-02"
+version: "1.1"
+date: "2025-07-03"
 related_sections:
   - "summary-index.json"
   - "files-and-folders.md"
@@ -29,7 +29,7 @@ Este reporte contrasta los archivos presentes en el repositorio con la cobertura
 
 | Elemento | Documento(s) |
 | --- | --- |
-| `src/App.tsx`, `src/App.css` | `files-and-folders.md` |
+| `src/App.tsx`, `src/App.css` | `files-and-folders.md`, `entrypoint-and-router.md` |
 | `src/main.tsx`, `src/router.tsx`, `src/index.scss` | `entrypoint-and-router.md` |
 | Componentes en `src/components/` | `src-components.md`, `components-selectors-mapping.md`, `ui-selectors.md` |
 | Componentes compartidos en `src/components/shared/` | `src-components-shared.md` |
@@ -47,36 +47,31 @@ Este reporte contrasta los archivos presentes en el repositorio con la cobertura
 
 ## 2. Grietas o faltantes
 
-- `src/App.tsx` carece de una sección JSON dedicada; solo se menciona brevemente en `files-and-folders.md`.
-- En `src-components-shared.md` el JSON indica **ScrollToHashElement** pero el archivo real es `ScrollToHasElement.ts`【F:docs/src-components-shared.md†L42-L46】.
-- `src-styles.md` referencia parciales `_card__transparent.scss` y `_carousel__collapse.scss`, mientras que en el código existen `_card__tansparent.scss` y `_carusel__collapse.scss`【F:docs/src-styles.md†L52-L61】.
-- `ui-selectors.md` asigna el selector `#toggle-menu` al archivo `src/components/shared/Header.tsx`, ruta inexistente【F:docs/ui-selectors.md†L28-L33】.
-- `docs/tests/structure-check.yml` espera un script `check-structure.sh` que no está en el repositorio.
-- `documentation-audit-report.md` (este archivo) no estaba versionado con Front Matter según la guía de estilo anterior.
+- El JSON de `src-components-shared.md` lista **ScrollToHashElement** pero el archivo real es `ScrollToHasElement.ts`【F:docs/src-components-shared.md†L42-L46】【F:src/components/shared/ScrollToHasElement.ts†L1-L5】.
+- Algunos documentos no incluyen el campo `use_all_sections` en el front matter, a diferencia de la plantilla de `AGENTS.md`.
+- `public.md` solo contiene el listado JSON sin descripción adicional de buenas prácticas.
+- No existe documentación específica para `src/utils/ga.ts` fuera de una mención breve en `files-and-folders.md`.
 
 ## 3. Consistencia de metadatos
 
-Todos los documentos en `docs/` incluyen `section_id`, `title`, `version`, `date`, `related_sections`, `enforce` y `agents`. Las fechas oscilan entre `2025-06-30` y `2025-07-02`. Sin embargo, los títulos en `summary-index.json` no siempre coinciden con el `title` real del documento (ejemplo: "Mapeo Componentes → Selectores CSS" vs. "Mapa de Componentes y Selectores").
+Todos los documentos poseen `section_id`, `title`, `version`, `date`, `related_sections`, `enforce` y `agents`. Sin embargo, solo algunos utilizan `use_all_sections`. Las fechas están alineadas entre 2025‑07‑01 y 2025‑07‑03.
 
 ## 4. Concordancia JSON ↔ Código
 
-- El bloque JSON de `src-components.md` especifica la hoja de estilos `src/styles/components/_carusel__collapse.scss`, que concuerda con el archivo existente【F:docs/src-components.md†L20-L27】.
-- En `src-styles.md` los nombres de parciales no reflejan la ortografía real del directorio (`_card__tansparent.scss`, `_carusel__collapse.scss`)【F:docs/src-styles.md†L52-L61】【F:src/styles/components/_card__tansparent.scss†L1-L10】.
-- `src-components-shared.md` menciona `ScrollToHashElement`, aunque el código exporta `ScrollToHasElement`【F:docs/src-components-shared.md†L42-L46】【F:src/components/shared/ScrollToHasElement.ts†L1-L5】.
-- En `ui-selectors.md` el selector `#toggle-menu` apunta a `src/components/shared/Header.tsx`; debería referir a `src/components/Header.tsx`【F:docs/ui-selectors.md†L28-L33】.
+- `entrypoint-and-router.md` contiene un bloque JSON que documenta `App.tsx`【F:docs/entrypoint-and-router.md†L19-L27】.
+- El listado de parciales SCSS en `src-styles.md` coincide con los archivos reales【F:docs/src-styles.md†L56-L63】.
+- El mapeo de `public/` incluye rutas existentes en disco【F:docs/public.md†L21-L29】.
+- `src-components-shared.md` mantiene la ruta errónea para `ScrollToHashElement`【F:docs/src-components-shared.md†L42-L46】.
 
 ## 5. Estado de índices y mapeos
 
-- `summary-index.json` contiene 16 entradas y enlaza a cada archivo de `docs/`. Algunos títulos difieren de los declarados en el Front Matter (por ejemplo, "Estilos en src/styles" vs. "Estilos SCSS").
-- `components-selectors-mapping.md` lista cinco componentes y coincide con los archivos reales.
-- `components-selectors-mapping.md` y `ui-selectors.md` usan anclas que existen en los documentos destino.
+`docs/summary-index.json` referencia los 16 documentos principales del proyecto y sus títulos coinciden con el front matter【F:docs/summary-index.json†L1-L20】.
+`components-selectors-mapping.md` enlaza correctamente a secciones de `ui-selectors.md` y `src-components.md`.
 
 ## 6. Plan de acción
 
-1. **Crear sección JSON para `App.tsx`** en un nuevo documento o dentro de `entrypoint-and-router.md`.
-2. **Corregir nombres** en `src-components-shared.md` y `src-styles.md` para reflejar la ruta real de archivos (`ScrollToHasElement.ts`, `_card__tansparent.scss`, `_carusel__collapse.scss`).
-3. **Actualizar `ui-selectors.md`** cambiando la referencia de `src/components/shared/Header.tsx` a `src/components/Header.tsx`.
-4. **Homogeneizar títulos** en `summary-index.json` para que coincidan con el Front Matter de cada documento.
-5. **Implementar** el script `check-structure.sh` indicado en `docs/tests/structure-check.yml` y enlazarlo desde `package.json`.
-6. **Mantener este reporte** con Front Matter y actualizarlo periódicamente al agregar o mover archivos.
-
+1. Corregir en `src-components-shared.md` la referencia a `ScrollToHasElement.ts`.
+2. Añadir `use_all_sections` en los documentos que carecen de este campo.
+3. Extender `public.md` con una explicación de buenas prácticas de uso de la carpeta `public/`.
+4. Crear o ampliar documentación sobre `src/utils/ga.ts` (funciones de Analytics).
+5. Mantener sincronizados `summary-index.json` y `files-and-folders.md` al modificar documentos.
