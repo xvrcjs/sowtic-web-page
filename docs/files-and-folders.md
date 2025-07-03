@@ -13,6 +13,7 @@ agents:
   - Code Agent
   - Doc Agent
   - Test Agent
+use_all_sections: false
 ---
 
 # Tabla JSON embebida
@@ -80,7 +81,7 @@ Cuando se agregue, elimine o mueva un documento Markdown en `docs/`, recuerda ta
 - `ButtonToTop.tsx`: botón que aparece al hacer scroll y vuelve al inicio de la página.
 - `CardTransparent.tsx`: tarjeta con estilo transparente; recibe clases para alineación y contenido como children.
 - `ContatUs.tsx`: formulario de contacto que usa EmailJS (`sendForm` con IDs definidos) y un captcha reCAPTCHA.
-- `ScrollToHasElement.ts`: cuando la URL tiene un hash, hace scroll suave al elemento correspondiente.
+- `ScrollToHashElement.ts`: cuando la URL tiene un hash, hace scroll suave al elemento correspondiente.
 - `ScrollToTop.tsx`: envuelve a la aplicación para llevar el scroll al inicio en cada cambio de ruta.
 
 #### src/pages/
@@ -105,7 +106,7 @@ Cuando se agregue, elimine o mueva un documento Markdown en `docs/`, recuerda ta
 - `usePageTracking.ts`: hook que envía la ruta actual a Google Analytics mediante `ReactGA` y `gtag` en cada cambio de navegación.
 
 #### src/utils/
-- `ga.ts`: funciones auxiliares para medir pageviews y eventos con Google Analytics.
+- `ga.ts`: funciones auxiliares para medir pageviews y eventos con Google Analytics. Documentado en `docs/src-utils-ga.md`.
 
 #### router.tsx
 - Define las rutas con `createBrowserRouter` y exporta el componente `<Router>` que envuelve a `RouterProvider`.

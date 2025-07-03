@@ -78,5 +78,10 @@
     "id": "SUMMARY-16",
     "title": "Mapeo de Selectores UI",
     "file": "ui-selectors.md"
+  },
+  {
+    "id": "SUMMARY-17",
+    "title": "Utilidades de Google Analytics",
+    "file": "src-utils-ga.md"
   }
 ]

@@ -12,6 +12,7 @@ enforce:
 agents:
   - Doc Agent
   - Test Agent
+use_all_sections: false
 ---
 
 # Componentes ↔ Selectores CSS

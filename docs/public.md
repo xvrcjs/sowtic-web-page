@@ -14,6 +14,7 @@ agents:
   - Code Agent
   - Test Agent
   - Doc Agent
+use_all_sections: false
 ---
 
 La carpeta `public/` contiene los recursos servidos sin procesamiento por Vite.
@@ -78,3 +79,7 @@ Lista machine-readable de recursos
   { "path": "public/img/warrning.png", "type": "image", "uses": ["#service-images"] }
 ]
 ```
+
+## Buenas prácticas
+
+Para organizar y servir correctamente la carpeta `public/` se recomienda habilitar mecanismos de cacheo y versionar cada asset con un hash en su nombre. Mueve los recursos que ya no se usen a la subcarpeta `unused/` hasta su eliminación. Favorece formatos modernos como WebP para imágenes y WOFF2 en fuentes. El Test Agent verifica automáticamente estos puntos en la rutina de integración.
